@@ -354,7 +354,16 @@ const courses = {
             code: 'ACC-2401',
             title: 'Financial Accounting',
             credits: 2,
-            mid: { syllabus: 'Accounting Basics', resources: [] },
+            mid: {
+                syllabus: 'Accounting Basics',
+                resources: [
+                    {
+                        name: 'Previous Year Question - Mid Term',
+                        link: 'https://mega.nz/file/moRFHJSK#dNNUkqbY7ranqtmUiynokGMmCTDW0sn2fpmEKFfc0Sg',
+                        type: 'prev_question'
+                    }
+                ]
+            },
             final: { syllabus: 'Financial Statements', resources: [] }
         },
         {
