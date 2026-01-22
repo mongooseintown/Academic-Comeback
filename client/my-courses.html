@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Courses - Academic Comeback</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="src/styles/styles.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <button class="hamburger-btn" id="hamburger-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/logo.png" alt="Academic Comeback" class="logo-image">
+                </a>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- Sidebar Menu -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    <div class="sidebar-menu" id="sidebar-menu">
+        <div class="sidebar-header">
+            <h3>Menu</h3>
+            <button class="sidebar-close" id="sidebar-close">&times;</button>
+        </div>
+        <div class="sidebar-user-info">
+            <div class="user-avatar" id="global-sidebar-avatar">🎓</div>
+            <div class="user-details">
+                <div class="user-name" id="sidebar-user-name">Student</div>
+                <div class="user-id" id="sidebar-user-id">Loading...</div>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="sidebar-link">
+                <span class="link-icon">📊</span>
+                <span>Dashboard</span>
+            </a>
+            <a href="my-courses.html" class="sidebar-link active">
+                <span class="link-icon">📚</span>
+                <span>My Courses</span>
+            </a>
+            <a href="profile-edit.html" class="sidebar-link">
+                <span class="link-icon">✏️</span>
+                <span>Edit Profile</span>
+            </a>
+            <a href="study-planner.html" class="sidebar-link">
+                <span class="link-icon">📅</span>
+                <span>Study Planner</span>
+            </a>
+            <a href="progress-tracker.html" class="sidebar-link">
+                <span class="link-icon">📈</span>
+                <span>Academic Progress</span>
+            </a>
+            <a href="cgpa-tracker.html" class="sidebar-link">
+                <span class="link-icon">🎯</span>
+                <span>CGPA Tracker</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <button class="sidebar-action-btn logout-btn" id="sidebar-logout-btn">
+                <span class="link-icon">🚪</span>
+                <span>Log Out</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- My Courses Hero -->
+    <section class="hero dashboard-hero">
+        <div class="hero-background">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="gradient-orb orb-3"></div>
+        </div>
+        <div class="container">
+            <div class="dashboard-hero-content">
+                <h1 class="hero-title">
+                    My <span class="gradient-text">Courses</span>
+                </h1>
+                <p class="hero-description" id="welcome-message">
+                    Continue your learning journey.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course List -->
+    <section class="section-padding" style="min-height: 40vh;">
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                <h2 class="section-title-small">Your Courses</h2>
+                <div style="display: flex; gap: 1rem; align-items: center;">
+                    <div id="semester-badge" class="semester-badge">Loading...</div>
+                    <button class="btn btn-primary" id="add-course-btn" style="padding: 0.6rem 1.2rem;">
+                        <span style="margin-right: 0.5rem;">➕</span> Add Course
+                    </button>
+                </div>
+            </div>
+
+            <div id="courses-grid" class="courses-grid">
+                <!-- Courses will be loaded here dynamically -->
+                <div class="loading-message">Loading your courses...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Details Modal -->
+    <div class="modal" id="course-modal">
+        <div class="modal-overlay" id="course-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="course-close">&times;</button>
+            <h2 class="modal-title" id="modal-course-title">Course Title</h2>
+            <p class="modal-subtitle" id="modal-course-code">CODE-123</p>
+
+            <div class="course-term-tabs">
+                <button class="tab-btn active" data-tab="mid">Mid Term</button>
+                <button class="tab-btn" data-tab="final">Final Term</button>
+            </div>
+
+            <div class="term-content active" id="mid-content">
+                <div id="mid-details-container">
+                    <h3>Mid Term Syllabus</h3>
+                    <p id="mid-syllabus">Loading...</p>
+                    <div class="resources-list" id="mid-resources">
+                        <!-- Resources will be added here -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="term-content" id="final-content" style="display: none;">
+            <div id="final-details-container">
+                <h3>Final Term Syllabus</h3>
+                <p id="final-syllabus">Loading...</p>
+                <div class="resources-list" id="final-resources">
+                    <!-- Resources will be added here -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <!-- Add Course Modal -->
+    <div class="modal" id="add-course-modal">
+        <div class="modal-overlay" id="add-course-overlay"></div>
+        <div class="modal-content" style="max-width: 900px; max-height: 80vh; overflow-y: auto;">
+            <button class="modal-close" id="add-course-close">&times;</button>
+            <h2 class="modal-title">Add Extra Course</h2>
+            <p class="modal-subtitle">Browse and add courses from any semester</p>
+
+            <div style="margin: 1.5rem 0;">
+                <label style="display: block; margin-bottom: 0.5rem; color: var(--text-secondary);">Filter by
+                    Semester:</label>
+                <select id="semester-filter"
+                    style="width: 100%; padding: 0.75rem; background: var(--bg-card); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: var(--text-primary); font-size: 1rem;">
+                    <option value="all" style="background: #000; color: #fff;">All Semesters</option>
+                    <option value="1" style="background: #000; color: #fff;">Semester 1</option>
+                    <option value="2" style="background: #000; color: #fff;">Semester 2</option>
+                    <option value="3" style="background: #000; color: #fff;">Semester 3</option>
+                    <option value="4" style="background: #000; color: #fff;">Semester 4</option>
+                    <option value="5" style="background: #000; color: #fff;">Semester 5</option>
+                    <option value="6" style="background: #000; color: #fff;">Semester 6</option>
+                    <option value="7" style="background: #000; color: #fff;">Semester 7</option>
+                    <option value="8" style="background: #000; color: #fff;">Semester 8</option>
+                </select>
+            </div>
+
+            <div id="available-courses-list" class="available-courses-list">
+                <!-- Courses will be loaded here -->
+                <div class="loading-message">Loading available courses...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 Academic Comeback. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Simple Search Modal -->
+    <div class="search-modal" id="search-modal">
+        <div class="search-modal-overlay" id="search-overlay"></div>
+        <div class="search-modal-content">
+            <div class="search-header">
+                <input type="text" class="search-input" id="search-input"
+                    placeholder="Search courses, topics, resources..." autocomplete="off">
+                <button class="search-close" id="search-close">&times;</button>
+            </div>
+            <div class="search-results" id="search-results">
+                <div class="search-placeholder">
+                    <span class="search-icon">🔍</span>
+                    <p>Start typing to search...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="src/scripts/script.js"></script>
+    <script src="src/scripts/search.js"></script>
+    <script src="src/scripts/dashboard.js"></script>
+</body>
+
+</html>

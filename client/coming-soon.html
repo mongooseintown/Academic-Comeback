@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon - Academic Comeback</title>
+    <link rel="stylesheet" href="src/styles/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Outfit:wght@600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body style="display: flex; flex-direction: column; min-height: 100vh; background: var(--bg-main);">
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/logo.png" alt="Academic Comeback" class="logo-image">
+                </a>
+            </div>
+            <div class="nav-actions">
+                <a href="index.html" class="btn btn-secondary">Back to Home</a>
+            </div>
+        </div>
+    </nav>
+
+    <main style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 100px 20px;">
+        <div class="container" style="text-align: center;">
+            <div class="hero-badge" style="margin: 0 auto 2rem;">
+                <span class="badge-icon">🚀</span>
+                <span>Work in Progress</span>
+            </div>
+            <h1 class="hero-title" style="font-size: clamp(2.5rem, 8vw, 4rem); margin-bottom: 1.5rem;">
+                Something <span class="gradient-text">Amazing</span> is Coming!
+            </h1>
+            <p class="hero-description" style="max-width: 600px; margin: 0 auto 2.5rem; font-size: 1.2rem;">
+                We're building this feature to help you ace your next semester. Stay tuned as we continue to expand the
+                Academic Comeback platform!
+            </p>
+            <div class="hero-cta">
+                <a href="index.html" class="btn btn-primary btn-large">Join the Waitlist</a>
+                <button class="btn btn-secondary btn-large" onclick="window.history.back()">Go Back</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 IIUC CSE Academic Comeback. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Academic Comeback</title>
+    <meta name="description" content="Your personalized learning dashboard">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="src/styles/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <button class="hamburger-btn" id="hamburger-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/logo.png" alt="Academic Comeback" class="logo-image">
+                </a>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- Sidebar Menu -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    <div class="sidebar-menu" id="sidebar-menu">
+        <div class="sidebar-header">
+            <h3>Menu</h3>
+            <button class="sidebar-close" id="sidebar-close">&times;</button>
+        </div>
+        <div class="sidebar-user-info">
+            <div class="user-avatar" id="global-sidebar-avatar">🎓</div>
+            <div class="user-details">
+                <div class="user-name" id="sidebar-user-name">Student</div>
+                <div class="user-id" id="sidebar-user-id">Loading...</div>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="sidebar-link active">
+                <span class="link-icon">📊</span>
+                <span>Dashboard</span>
+            </a>
+            <a href="my-courses.html" class="sidebar-link">
+                <span class="link-icon">📚</span>
+                <span>My Courses</span>
+            </a>
+            <a href="profile-edit.html" class="sidebar-link">
+                <span class="link-icon">✏️</span>
+                <span>Edit Profile</span>
+            </a>
+            <a href="study-planner.html" class="sidebar-link">
+                <span class="link-icon">📅</span>
+                <span>Study Planner</span>
+            </a>
+            <a href="progress-tracker.html" class="sidebar-link">
+                <span class="link-icon">📈</span>
+                <span>Academic Progress</span>
+            </a>
+            <a href="cgpa-tracker.html" class="sidebar-link">
+                <span class="link-icon">🎯</span>
+                <span>CGPA Tracker</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <button class="sidebar-action-btn logout-btn" id="sidebar-logout-btn">
+                <span class="link-icon">🚪</span>
+                <span>Log Out</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Dashboard Hero Section -->
+    <section class="hero dashboard-hero">
+        <div class="hero-background">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="gradient-orb orb-3"></div>
+        </div>
+        <div class="container">
+            <div class="dashboard-hero-content">
+                <h1 class="hero-title">
+                    Your <span class="gradient-text">Learning Dashboard</span>
+                </h1>
+                <p class="hero-description" id="welcome-message">
+                    Welcome back! Your personalized learning experience awaits.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile Completion Alert -->
+    <div class="container" id="profile-alert-container"
+        style="display: none; margin-top: -2rem; position: relative; z-index: 10;">
+        <div class="profile-alert">
+            <div class="alert-icon">⚠️</div>
+            <div class="alert-content">
+                <h3>Profile Incomplete (<span id="alert-percentage">40%</span>)</h3>
+                <p>Complete your profile to unlock <strong>Course Recommendations</strong> and <strong>Skill
+                        Analysis</strong>.</p>
+            </div>
+            <a href="profile-edit.html" class="btn btn-sm btn-primary">Complete Now &rarr;</a>
+        </div>
+    </div>
+
+    <!-- Performance Analysis Section -->
+    <section class="dashboard-content section-padding">
+        <div class="container">
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-info">
+                        <h3>CGPA</h3>
+                        <div class="stat-value">0.00</div>
+                        <span class="stat-label">Current Average</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🎓</div>
+                    <div class="stat-info">
+                        <h3>Credits</h3>
+                        <div class="stat-value">0</div>
+                        <span class="stat-label">Completed</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">🏆</div>
+                    <div class="stat-info">
+                        <h3>Rank</h3>
+                        <div class="stat-value">#0</div>
+                        <span class="stat-label">Class Position</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Grid -->
+            <div class="charts-grid-dashboard">
+                <!-- Wagon Wheel (Radar Chart) -->
+                <div class="chart-card">
+                    <h3>Skill Analysis (Wagon Wheel)</h3>
+                    <div class="chart-container">
+                        <canvas id="skillRadarChart"></canvas>
+                    </div>
+                </div>
+                <!-- Semester Performance (Bar Chart) -->
+                <div class="chart-card">
+                    <h3>Semester Performance</h3>
+                    <div class="chart-container">
+                        <canvas id="semesterBarChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Profile Modal -->
+    <div class="modal" id="profile-modal">
+        <div class="modal-overlay" id="profile-overlay"></div>
+        <div class="modal-content profile-modal-content">
+            <button class="modal-close" id="profile-close">&times;</button>
+            <div class="profile-header-modal">
+                <div class="profile-avatar">🎓</div>
+                <h2 class="profile-name" id="modal-profile-name">Student Name</h2>
+                <p class="profile-id" id="modal-profile-id">ID: C241000</p>
+            </div>
+            <div class="profile-details">
+                <div class="detail-item">
+                    <span class="detail-label">Email</span>
+                    <span class="detail-value" id="modal-profile-email">student@example.com</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Semester</span>
+                    <span class="detail-value" id="modal-profile-semester">1st Semester</span>
+                </div>
+
+                <div class="detail-item">
+                    <span class="detail-label">Department</span>
+                    <span class="detail-value">CSE</span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" style="width: 100%;">Edit Profile (Coming Soon)</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span class="logo-icon">🎓</span>
+                        <span class="logo-text">ACADEMIC COMEBACK</span>
+                    </div>
+                    <p class="footer-description">Empowering students to achieve their academic dreams through
+                        personalized learning and expert guidance.</p>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="my-courses.html">My Courses</a></li>
+                        <li><a href="study-planner.html">Study Planner</a></li>
+                        <li><a href="cgpa-tracker.html">CGPA Tracker</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="coming-soon.html">Help Center</a></li>
+                        <li><a href="coming-soon.html">Contact</a></li>
+                        <li><a href="coming-soon.html">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Academic Comeback. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Simple Search Modal -->
+    <div class="search-modal" id="search-modal">
+        <div class="search-modal-overlay" id="search-overlay"></div>
+        <div class="search-modal-content">
+            <div class="search-header">
+                <input type="text" class="search-input" id="search-input"
+                    placeholder="Search courses, topics, resources..." autocomplete="off">
+                <button class="search-close" id="search-close">&times;</button>
+            </div>
+            <div class="search-results" id="search-results">
+                <div class="search-placeholder">
+                    <span class="search-icon">🔍</span>
+                    <p>Start typing to search...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="src/scripts/script.js"></script>
+    <script src="src/scripts/search.js"></script>
+    <script src="src/scripts/dashboard.js"></script>
+</body>
+
+</html>

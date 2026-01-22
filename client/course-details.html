@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Details - Academic Comeback</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="src/styles/styles.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <button class="hamburger-btn" id="hamburger-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/logo.png" alt="Academic Comeback" class="logo-image">
+                </a>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- Sidebar Menu (Copied from my-courses.html) -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    <div class="sidebar-menu" id="sidebar-menu">
+        <div class="sidebar-header">
+            <h3>Menu</h3>
+            <button class="sidebar-close" id="sidebar-close">&times;</button>
+        </div>
+        <div class="sidebar-user-info">
+            <div class="user-avatar">🎓</div>
+            <div class="user-details">
+                <div class="user-name" id="sidebar-user-name">Student</div>
+                <div class="user-id" id="sidebar-user-id">Loading...</div>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="sidebar-link">
+                <span class="link-icon">📊</span>
+                <span>Dashboard</span>
+            </a>
+            <a href="my-courses.html" class="sidebar-link">
+                <span class="link-icon">📚</span>
+                <span>My Courses</span>
+            </a>
+            <a href="profile-edit.html" class="sidebar-link">
+                <span class="link-icon">✏️</span>
+                <span>Edit Profile</span>
+            </a>
+            <a href="study-planner.html" class="sidebar-link">
+                <span class="link-icon">📅</span>
+                <span>Study Planner</span>
+            </a>
+            <a href="progress-tracker.html" class="sidebar-link">
+                <span class="link-icon">📈</span>
+                <span>Academic Progress</span>
+            </a>
+            <a href="cgpa-tracker.html" class="sidebar-link">
+                <span class="link-icon">🎯</span>
+                <span>CGPA Tracker</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <button class="sidebar-action-btn logout-btn" id="sidebar-logout-btn">
+                <span class="link-icon">🚪</span>
+                <span>Log Out</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Course Details Hero -->
+    <section class="hero dashboard-hero">
+        <div class="hero-background">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="gradient-orb orb-3"></div>
+        </div>
+        <div class="container">
+            <div class="dashboard-hero-content">
+                <a href="my-courses.html" class="premium-back-btn">
+                    <span class="back-icon">←</span>
+                    <span>Back to Courses</span>
+                </a>
+                <h1 class="hero-title">
+                    <span id="page-course-title">Loading...</span>
+                </h1>
+                <p class="hero-description" id="page-course-code">
+                    Loading...
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Content -->
+    <section class="section-padding" style="min-height: 40vh;">
+        <div class="container">
+            <div class="course-term-header">
+                <div
+                    style="display: flex; justify-content: space-between; align-items: flex-start; gap: 2rem; flex-wrap: wrap;">
+                    <div>
+                        <h1 id="page-term-title" class="section-title-premium">Mid Term Content</h1>
+                        <p style="color: var(--text-muted); font-size: 1.1rem;">Explore syllabus, segments, and study
+                            resources.</p>
+                    </div>
+                    <div class="term-actions">
+                        <div class="premium-search-trigger" id="open-premium-search">
+                            <span class="search-icon">🔍</span>
+                            <span>Search Topics</span>
+                        </div>
+                        <div class="action-card" onclick="openPreviousQuestions()">
+                            <span class="action-icon-styled">📜</span>
+                            <span>Previous Questions</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search Section Removed (Replaced by Trigger Button) -->
+
+
+            <!-- Segments Section -->
+            <div class="segments-section" id="course-segments">
+                <h2 class="section-title-small" style="margin-bottom: 2rem;">Course Segments</h2>
+                <div class="segments-grid">
+                    <div class="segment-card" onclick="openSegment(1)">
+                        <div class="segment-icon">📚</div>
+                        <h3>Segment 1</h3>
+                        <p>Core foundations and introductory concepts</p>
+                    </div>
+                    <div class="segment-card" onclick="openSegment(2)">
+                        <div class="segment-icon">💡</div>
+                        <h3>Segment 2</h3>
+                        <p>Application of theories and problem solving</p>
+                    </div>
+                    <div class="segment-card" onclick="openSegment(3)">
+                        <div class="segment-icon">🚀</div>
+                        <h3>Segment 3</h3>
+                        <p>Advanced topics and project implementation</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Segment Resources Detail -->
+            <div class="resource-section" id="segment-resources" style="display: none;">
+                <div class="resource-header">
+                    <div class="resource-header-top">
+                        <div class="premium-back-btn" onclick="backToSegments()" style="cursor: pointer;">
+                            <span class="back-icon">←</span>
+                            <span>Back to Segments</span>
+                        </div>
+                    </div>
+                    <h2 id="active-segment-title" class="section-title-premium">Segment Resources</h2>
+                </div>
+
+                <div class="resource-grid" id="resource-grid">
+                    <!-- Resource cards injected by JS -->
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Premium Search Overlay -->
+    <div class="search-overlay-fullscreen" id="premium-search-modal">
+        <div class="search-expand-container">
+            <div class="premium-expanded-search-bar">
+                <span style="font-size: 1.5rem;">🔍</span>
+                <input type="text" id="premium-search-input" placeholder="Search topics, chapters, or resources..."
+                    autocomplete="off">
+                <div class="search-close-btn-premium" id="close-premium-search">&times;</div>
+            </div>
+
+            <div class="premium-search-results-area" id="premium-search-results">
+                <div class="empty-search-state">
+                    <span class="icon">🔍</span>
+                    <p>Start typing to search in this term...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 Academic Comeback. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="src/scripts/script.js"></script>
+    <script src="src/scripts/dashboard.js"></script>
+    <script>
+        // Global variables for segment navigation
+        let currentCourseData = null;
+        let currentTerm = null;
+
+        function openSegment(num) {
+            const segmentsSection = document.getElementById('course-segments');
+            const resourceSection = document.getElementById('segment-resources');
+            const resourceGrid = document.getElementById('resource-grid');
+            const segmentTitle = document.getElementById('active-segment-title');
+
+            if (segmentsSection) segmentsSection.style.display = 'none';
+            if (resourceSection) resourceSection.style.display = 'block';
+            if (segmentTitle) segmentTitle.textContent = `Segment ${num} Resources`;
+
+            // Back button state
+            resourceGrid.setAttribute('data-current-segment', num);
+
+            // Define categories
+            const categories = [
+                { title: 'Slides', icon: '📽️', desc: 'Lecture presentations & slides', type: 'slides' },
+                { title: 'PDFs', icon: '📄', desc: 'Textbooks & reference materials', type: 'pdfs' },
+                { title: 'Handnotes', icon: '📝', desc: 'Class notes & student summaries', type: 'notes' },
+                { title: 'Playlists', icon: '📺', desc: 'Suggested YouTube playlists', type: 'playlists' }
+            ];
+
+            if (resourceGrid) {
+                resourceGrid.style.display = 'grid'; // Ensure grid for categories
+                resourceGrid.innerHTML = categories.map(cat => `
+                    <div class="resource-card" onclick="openResource('${cat.type}', ${num})">
+                        <div class="resource-card-img">${cat.icon}</div>
+                        <div class="resource-card-info">
+                            <h4>${cat.title}</h4>
+                            <p>${cat.desc}</p>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function backToSegments() {
+            const segmentsSection = document.getElementById('course-segments');
+            const resourceSection = document.getElementById('segment-resources');
+            if (segmentsSection) segmentsSection.style.display = 'block';
+            if (resourceSection) resourceSection.style.display = 'none';
+        }
+
+        function openPreviousQuestions() {
+            if (!currentCourseData) return;
+            openResource('prev_question', 0); // 0 or null for term-level
+        }
+
+        function openResource(type, segmentNum) {
+            const resourceGrid = document.getElementById('resource-grid');
+            const segmentTitle = document.getElementById('active-segment-title');
+            const segmentsSection = document.getElementById('course-segments');
+            const resourceSection = document.getElementById('segment-resources');
+
+            if (!currentCourseData) return;
+
+            // Show sections
+            if (segmentsSection) segmentsSection.style.display = 'none';
+            if (resourceSection) resourceSection.style.display = 'block';
+
+            // Filter resources from data
+            const termData = currentTerm === 'mid' ? currentCourseData.mid : currentCourseData.final;
+
+            // If segmentNum is 0/null, it's a term-level resource (like prev questions)
+            const filteredResources = (termData.resources || []).filter(r => {
+                if (type === 'prev_question') return r.type === 'prev_question';
+                return r.type === type && r.segment === segmentNum;
+            });
+
+            if (type === 'prev_question') {
+                segmentTitle.textContent = `Previous Questions`;
+            } else {
+                segmentTitle.textContent = `${type.charAt(0).toUpperCase() + type.slice(1)} - Segment ${segmentNum}`;
+            }
+
+            if (filteredResources.length === 0) {
+                resourceGrid.style.display = 'block';
+                resourceGrid.innerHTML = `
+                    <div style="text-align: center; padding: 4rem 2rem; background: rgba(0,0,0,0.2); border-radius: 20px; border: 1px dashed rgba(255,255,255,0.1);">
+                        <span style="font-size: 4rem; display: block; margin-bottom: 1.5rem;">${type === 'prev_question' ? '📜' : '🕒'}</span>
+                        <h3 style="color: white; margin-bottom: 0.5rem;">No ${type === 'prev_question' ? 'questions' : type} found</h3>
+                        <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 2rem;">We haven't uploaded any resources for this category yet.</p>
+                        <button class="btn btn-primary" onclick="backToSegments()">Back to ${currentTerm === 'mid' ? 'Mid' : 'Final'} Term</button>
+                    </div>
+                `;
+                return;
+            }
+
+            resourceGrid.style.display = 'block'; // List view should be block
+            resourceGrid.innerHTML = `
+                <div style="width: 100%;">
+                    <div class="premium-back-btn" onclick="${type === 'prev_question' ? 'backToSegments()' : `openSegment(${segmentNum})`}" style="margin-bottom: 2rem; cursor: pointer;">
+                        <span class="back-icon">←</span>
+                        <span>Back to ${type === 'prev_question' ? 'Term Content' : 'Categories'}</span>
+                    </div>
+                    <div class="links-list" style="display: flex; flex-direction: column; gap: 1rem;">
+                        ${filteredResources.map(r => `
+                            <a href="${r.link}" target="_blank" class="resource-item" style="text-decoration: none;">
+                                <div style="display: flex; align-items: center; gap: 1.5rem; justify-content: space-between; width: 100%;">
+                                    <div style="display: flex; align-items: center; gap: 1.5rem;">
+                                        <div style="font-size: 2rem;">${type === 'slides' ? '📽️' : type === 'pdfs' ? '📄' : type === 'notes' ? '📝' : type === 'playlists' ? '📺' : '📜'}</div>
+                                        <div>
+                                            <h4 style="margin: 0; color: white; font-size: 1.1rem;">${r.name}</h4>
+                                            <p style="margin: 0.2rem 0 0; font-size: 0.85rem; color: var(--text-muted); font-weight: normal;">${type === 'prev_question' ? 'Previous Year Question' : 'Study Resource'} • Official</p>
+                                        </div>
+                                    </div>
+                                    <span class="btn btn-outline" style="padding: 0.5rem 1.25rem; font-size: 0.9rem; border-radius: 8px;">View details</span>
+                                </div>
+                            </a>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Init logic specifically for this page
+        document.addEventListener('DOMContentLoaded', () => {
+            // Retrieve params
+            const params = new URLSearchParams(window.location.search);
+            const code = params.get('code');
+            const term = params.get('term'); // 'mid' or 'final'
+            const title = params.get('title');
+
+            currentTerm = term;
+
+            if (!code || !term) {
+                window.location.href = 'my-courses.html';
+                return;
+            }
+
+            // Show/Hide Segments based on term
+            const segmentsSection = document.getElementById('course-segments');
+            if (term !== 'mid') {
+                if (segmentsSection) segmentsSection.style.display = 'none';
+            }
+
+            // Set UI texts
+            document.getElementById('page-course-code').textContent = code;
+            if (title) document.getElementById('page-course-title').textContent = decodeURIComponent(title);
+            document.getElementById('page-term-title').textContent = (term === 'mid' ? 'Mid Term' : 'Final Term') + ' Content';
+
+            async function loadCourseData() {
+                try {
+                    const response = await fetch('http://localhost:3000/api/user-courses', { credentials: 'include' });
+                    const data = await response.json();
+                    if (data.success) {
+                        const course = data.courses.find(c => c.code === code);
+                        if (course) {
+                            currentCourseData = course;
+                            document.getElementById('page-course-title').textContent = course.title;
+
+                            const termData = term === 'mid' ? course.mid : course.final;
+
+                            // Setup Data
+                            document.getElementById('page-syllabus').textContent = termData.syllabus || 'No syllabus available.';
+
+                            const resourceContainer = document.getElementById('page-resources');
+                            resourceContainer.innerHTML = (termData.resources && termData.resources.length > 0)
+                                ? termData.resources.map(r => `<a href="${r.link}" target="_blank" class="resource-item">${r.name}</a>`).join('')
+                                : '<p class="text-muted">No resources available yet.</p>';
+
+                            // Load sidebar info
+                            if (window.updateUserInfo && data.user) {
+                                window.updateUserInfo(data.user);
+                            }
+                        }
+                    }
+                } catch (e) {
+                    console.error('Error', e);
+                }
+            }
+
+            function setupSearch() {
+                const openBtn = document.getElementById('open-premium-search');
+                const closeBtn = document.getElementById('close-premium-search');
+                const modal = document.getElementById('premium-search-modal');
+                const input = document.getElementById('premium-search-input');
+                const resultsArea = document.getElementById('premium-search-results');
+
+                if (!openBtn || !modal || !input) return;
+
+                openBtn.addEventListener('click', () => {
+                    modal.classList.add('active');
+                    input.focus();
+                    document.body.style.overflow = 'hidden';
+                });
+
+                const closeModal = () => {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
+                    input.value = '';
+                    resultsArea.innerHTML = `
+                        <div class="empty-search-state">
+                            <span class="icon">🔍</span>
+                            <p>Start typing to search in this term...</p>
+                        </div>
+                    `;
+                };
+
+                closeBtn.addEventListener('click', closeModal);
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) closeModal();
+                });
+
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+                });
+
+                input.addEventListener('input', (e) => {
+                    const query = e.target.value.toLowerCase().trim();
+                    if (!currentCourseData) return;
+
+                    if (query.length === 0) {
+                        resultsArea.innerHTML = `
+                            <div class="empty-search-state">
+                                <span class="icon">🔍</span>
+                                <p>Start typing to search in this term...</p>
+                            </div>
+                        `;
+                        return;
+                    }
+
+                    const termData = currentTerm === 'mid' ? currentCourseData.mid : currentCourseData.final;
+                    const resources = termData.resources || [];
+
+                    const filtered = resources.filter(r =>
+                        r.name.toLowerCase().includes(query) ||
+                        r.type.toLowerCase().includes(query)
+                    );
+
+                    if (filtered.length === 0) {
+                        resultsArea.innerHTML = `
+                            <div class="empty-search-state">
+                                <span class="icon">❌</span>
+                                <p>No results found for "${query}"</p>
+                            </div>
+                        `;
+                        return;
+                    }
+
+                    resultsArea.innerHTML = filtered.map((r, index) => {
+                        const icon = r.type === 'slides' ? '📽️' : r.type === 'pdfs' ? '📄' : r.type === 'notes' ? '📝' : r.type === 'playlists' ? '📺' : '📜';
+                        return `
+                            <div class="premium-search-result-item" style="animation-delay: ${index * 0.05}s" onclick="window.open('${r.link}', '_blank')">
+                                <div class="result-icon-box">${icon}</div>
+                                <div class="result-info">
+                                    <h4>${r.name}</h4>
+                                    <p>${r.type.charAt(0).toUpperCase() + r.type.slice(1)} • Segment ${r.segment || 'Full'}</p>
+                                </div>
+                            </div>
+                        `;
+                    }).join('');
+                });
+            }
+
+            setupSearch();
+            loadCourseData();
+        });
+    </script>
+</body>
+
+</html>

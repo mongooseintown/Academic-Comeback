@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Progress - Academic Comeback</title>
+    <meta name="description" content="Track your course-wise progress and milestones.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="src/styles/styles.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <button class="hamburger-btn" id="hamburger-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/logo.png" alt="Academic Comeback" class="logo-image">
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar Menu -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    <div class="sidebar-menu" id="sidebar-menu">
+        <div class="sidebar-header">
+            <h3>Menu</h3>
+            <button class="sidebar-close" id="sidebar-close">&times;</button>
+        </div>
+        <div class="sidebar-user-info">
+            <div class="user-avatar" id="global-sidebar-avatar">🎓</div>
+            <div class="user-details">
+                <div class="user-name" id="sidebar-user-name">Student</div>
+                <div class="user-id" id="sidebar-user-id">Loading...</div>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="sidebar-link">
+                <span class="link-icon">📊</span>
+                <span>Dashboard</span>
+            </a>
+            <a href="my-courses.html" class="sidebar-link">
+                <span class="link-icon">📚</span>
+                <span>My Courses</span>
+            </a>
+            <a href="profile-edit.html" class="sidebar-link">
+                <span class="link-icon">✏️</span>
+                <span>Edit Profile</span>
+            </a>
+            <a href="study-planner.html" class="sidebar-link">
+                <span class="link-icon">📅</span>
+                <span>Study Planner</span>
+            </a>
+            <a href="progress-tracker.html" class="sidebar-link active">
+                <span class="link-icon">📈</span>
+                <span>Academic Progress</span>
+            </a>
+            <a href="cgpa-tracker.html" class="sidebar-link">
+                <span class="link-icon">🎯</span>
+                <span>CGPA Tracker</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <button class="sidebar-action-btn logout-btn" id="sidebar-logout-btn">
+                <span class="link-icon">🚪</span>
+                <span>Log Out</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Progress Hero Section -->
+    <section class="hero dashboard-hero">
+        <div class="hero-background">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="gradient-orb orb-3"></div>
+        </div>
+        <div class="container">
+            <div class="dashboard-hero-content">
+                <h1 class="hero-title">
+                    Academic <span class="gradient-text">Progress Tracker</span>
+                </h1>
+                <p class="hero-description">
+                    Visualize your course completion and track your semester milestones in real-time.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Progress Grid Section -->
+    <section class="dashboard-content section-padding">
+        <div class="container">
+            <div class="section-header-box" style="margin-bottom: 3rem; text-align: center;">
+                <h2 class="section-title-small">Course Completion Overview</h2>
+                <p class="text-muted">Stay ahead of your schedule by monitoring your academic milestones.</p>
+            </div>
+
+            <div id="progress-container" class="progress-grid-view">
+                <!-- Data will be loaded dynamically -->
+                <div class="loading-message">
+                    <div class="spinner"></div>
+                    <p>Fetching your latest progress data...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 Academic Comeback. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Notification Container -->
+    <div id="notification-container"></div>
+
+    <!-- Search Modal -->
+    <div class="search-modal" id="search-modal">
+        <div class="search-modal-overlay" id="search-overlay"></div>
+        <div class="search-modal-content">
+            <div class="search-header">
+                <input type="text" class="search-input" id="search-input"
+                    placeholder="Search courses, topics, resources..." autocomplete="off">
+                <button class="search-close" id="search-close">&times;</button>
+            </div>
+            <div class="search-results" id="search-results"></div>
+        </div>
+    </div>
+
+    <script src="src/scripts/script.js"></script>
+    <script src="src/scripts/search.js"></script>
+    <script src="src/scripts/progress-tracker.js"></script>
+</body>
+
+</html>

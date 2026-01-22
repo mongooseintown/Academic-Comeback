@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile - Academic Comeback</title>
+    <link rel="stylesheet" href="src/styles/styles.css">
+    <!-- Cropper.js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <button class="hamburger-btn" id="hamburger-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/logo.png" alt="Academic Comeback" class="logo-image">
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar Menu -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    <div class="sidebar-menu" id="sidebar-menu">
+        <div class="sidebar-header">
+            <h3>Menu</h3>
+            <button class="sidebar-close" id="sidebar-close">&times;</button>
+        </div>
+        <div class="sidebar-user-info">
+            <div class="user-avatar" id="global-sidebar-avatar">🎓</div>
+            <div class="user-details">
+                <div class="user-name" id="sidebar-user-name">Student</div>
+                <div class="user-id" id="sidebar-user-id">Loading...</div>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="sidebar-link">
+                <span class="link-icon">📊</span>
+                <span>Dashboard</span>
+            </a>
+            <a href="my-courses.html" class="sidebar-link">
+                <span class="link-icon">📚</span>
+                <span>My Courses</span>
+            </a>
+            <a href="profile-edit.html" class="sidebar-link active">
+                <span class="link-icon">✏️</span>
+                <span>Edit Profile</span>
+            </a>
+            <a href="study-planner.html" class="sidebar-link">
+                <span class="link-icon">📅</span>
+                <span>Study Planner</span>
+            </a>
+            <a href="progress-tracker.html" class="sidebar-link">
+                <span class="link-icon">📈</span>
+                <span>Academic Progress</span>
+            </a>
+            <a href="cgpa-tracker.html" class="sidebar-link">
+                <span class="link-icon">🎯</span>
+                <span>CGPA Tracker</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <button class="sidebar-action-btn logout-btn" id="sidebar-logout-btn">
+                <span class="link-icon">🚪</span>
+                <span>Log Out</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Profile Edit Section -->
+    <section class="profile-edit-section">
+        <div class="container profile-layout">
+            <!-- Left Sidebar Navigation -->
+            <aside class="profile-tabs-sidebar">
+                <div class="sidebar-header-compact">
+                    <div class="profile-main-preview">
+                        <img id="tab-profile-preview" src="assets/logo.png" alt="Profile"
+                            onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2260%22 height=%2260%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23667eea%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2%22/%3E%3Ccircle cx=%2212%22 cy=%227%22 r=%224%22/%3E%3C/svg%3E'">
+                        <div class="preview-info">
+                            <h2 id="preview-user-name">Loading...</h2>
+                            <p id="preview-user-id">ID: Loading...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <nav class="profile-tab-nav">
+                    <button class="tab-trigger active" data-tab="personal">
+                        <span class="tab-icon">📋</span>
+                        <span>Personal Info</span>
+                    </button>
+                    <button class="tab-trigger" data-tab="academic">
+                        <span class="tab-icon">🎓</span>
+                        <span>Academic Details</span>
+                    </button>
+                    <button class="tab-trigger" data-tab="skills">
+                        <span class="tab-icon">💻</span>
+                        <span>Skills & Interests</span>
+                    </button>
+                    <button class="tab-trigger" data-tab="emergency">
+                        <span class="tab-icon">🚨</span>
+                        <span>Emergency Contact</span>
+                    </button>
+                    <button class="tab-trigger" data-tab="account">
+                        <span class="tab-icon">⚙️</span>
+                        <span>Account Settings</span>
+                    </button>
+                </nav>
+
+                <div class="sidebar-footer-progress">
+                    <div class="progress-info">
+                        <span>Profile Completion</span>
+                        <span id="progress-text-percent">0%</span>
+                    </div>
+                    <div class="mini-progress-bar">
+                        <div class="mini-progress-fill" id="progress-fill-sidebar" style="width: 0%"></div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main Content Area -->
+            <main class="profile-content-area">
+                <form id="profile-form" class="premium-form">
+
+                    <!-- Tab: Personal Information -->
+                    <div class="tab-panel active" id="personal">
+                        <div class="panel-header">
+                            <h2>📋 Personal Information</h2>
+                            <p>Manage your basic details and profile visibility</p>
+                        </div>
+
+                        <div class="form-section-compact picture-section">
+                            <div class="profile-picture-edit">
+                                <div class="image-wrapper">
+                                    <img id="profile-preview" src="assets/logo.png" alt="Profile"
+                                        onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22150%22 height=%22150%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23667eea%22 stroke-width=%221%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2%22/%3E%3Ccircle cx=%2212%22 cy=%227%22 r=%224%22/%3E%3C/svg%3E'">
+                                    <button type="button" class="edit-overlay-btn" id="upload-picture-btn">
+                                        <span>📷</span>
+                                    </button>
+                                </div>
+                                <div class="upload-info">
+                                    <h3>Profile Picture</h3>
+                                    <p>JPG or PNG. Max size 5MB.</p>
+                                    <input type="file" id="profile-picture-input" accept="image/*"
+                                        style="display: none;">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-grid">
+                            <div class="form-group floating">
+                                <label>Phone Number</label>
+                                <input type="tel" name="phone" id="phone" placeholder="+880 1234567890">
+                            </div>
+                            <div class="form-group floating">
+                                <label>Date of Birth</label>
+                                <input type="date" name="dateOfBirth" id="dateOfBirth">
+                            </div>
+                            <div class="form-group floating">
+                                <label>Blood Group</label>
+                                <select name="bloodGroup" id="bloodGroup">
+                                    <option value="">Select</option>
+                                    <option value="A+">A+</option>
+                                    <option value="A-">A-</option>
+                                    <option value="B+">B+</option>
+                                    <option value="B-">B-</option>
+                                    <option value="O+">O+</option>
+                                    <option value="O-">O-</option>
+                                    <option value="AB+">AB+</option>
+                                    <option value="AB-">AB-</option>
+                                </select>
+                            </div>
+                            <div class="form-group floating">
+                                <label>Gender</label>
+                                <select name="gender" id="gender">
+                                    <option value="">Select</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab: Academic Details -->
+                    <div class="tab-panel" id="academic">
+                        <div class="panel-header">
+                            <h2>🎓 Academic Details</h2>
+                            <p>Your university Information and performance targets</p>
+                        </div>
+                        <div class="form-grid">
+                            <div class="form-group floating">
+                                <label>Department <span class="required">*</span></label>
+                                <select name="department" id="department" required>
+                                    <option value="">Select Department</option>
+                                    <option value="CSE">Computer Science & Engineering</option>
+                                    <option value="EEE">Electrical & Electronic Engineering</option>
+                                    <option value="CE">Civil Engineering</option>
+                                    <option value="ME">Mechanical Engineering</option>
+                                    <option value="BBA">Business Administration</option>
+                                    <option value="English">English</option>
+                                </select>
+                            </div>
+                            <div class="form-group floating">
+                                <label>Batch <span class="required">*</span></label>
+                                <input type="text" name="batch" id="batch" placeholder="2024" required>
+                            </div>
+                            <div class="form-group floating">
+                                <label>Student Type</label>
+                                <select name="studentType" id="studentType">
+                                    <option value="Regular">Regular</option>
+                                    <option value="Irregular">Irregular</option>
+                                </select>
+                            </div>
+                            <div class="form-group floating">
+                                <label>Current CGPA</label>
+                                <input type="number" name="currentCGPA" id="currentCGPA" step="0.01" min="0" max="4"
+                                    placeholder="3.50">
+                            </div>
+                            <div class="form-group floating">
+                                <label>Target CGPA</label>
+                                <input type="number" name="targetCGPA" id="targetCGPA" step="0.01" min="0" max="4"
+                                    placeholder="3.75">
+                            </div>
+                            <div class="form-group floating">
+                                <label>Completed Credits</label>
+                                <input type="number" name="completedCredits" id="completedCredits" min="0"
+                                    placeholder="68">
+                            </div>
+                            <div class="form-group floating">
+                                <label>Expected Graduation</label>
+                                <input type="month" name="expectedGraduation" id="expectedGraduation">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab: Skills & Interests -->
+                    <div class="tab-panel" id="skills">
+                        <div class="panel-header">
+                            <h2>💻 Skills & Interests</h2>
+                            <p>Showcase your expertise and what you're passionate about</p>
+                        </div>
+                        <div class="form-section-compact">
+                            <label class="section-label">Programming Languages</label>
+                            <div class="checkbox-grid" id="programming-languages">
+                                <label class="checkbox-pill"><input type="checkbox" value="C"><span>C</span></label>
+                                <label class="checkbox-pill"><input type="checkbox" value="C++"><span>C++</span></label>
+                                <label class="checkbox-pill"><input type="checkbox"
+                                        value="Java"><span>Java</span></label>
+                                <label class="checkbox-pill"><input type="checkbox"
+                                        value="Python"><span>Python</span></label>
+                                <label class="checkbox-pill"><input type="checkbox"
+                                        value="JavaScript"><span>JavaScript</span></label>
+                                <label class="checkbox-pill"><input type="checkbox" value="PHP"><span>PHP</span></label>
+                                <label class="checkbox-pill"><input type="checkbox" value="C#"><span>C#</span></label>
+                                <label class="checkbox-pill"><input type="checkbox"
+                                        value="Ruby"><span>Ruby</span></label>
+                            </div>
+                        </div>
+                        <div class="form-section-compact">
+                            <label class="section-label">Areas of Interest</label>
+                            <div class="checkbox-grid" id="areas-of-interest">
+                                <label class="checkbox-pill"><input type="checkbox" value="Web Development"><span>Web
+                                        Dev</span></label>
+                                <label class="checkbox-pill"><input type="checkbox"
+                                        value="Mobile Development"><span>Mobile Dev</span></label>
+                                <label class="checkbox-pill"><input type="checkbox"
+                                        value="AI/ML"><span>AI/ML</span></label>
+                                <label class="checkbox-pill"><input type="checkbox" value="Data Science"><span>Data
+                                        Science</span></label>
+                                <label class="checkbox-pill"><input type="checkbox"
+                                        value="Cybersecurity"><span>Cybersecurity</span></label>
+                                <label class="checkbox-pill"><input type="checkbox" value="Game Development"><span>Game
+                                        Dev</span></label>
+                            </div>
+                        </div>
+                        <div class="form-grid" style="margin-top: 2rem;">
+                            <div class="form-group floating">
+                                <label>GitHub Profile</label>
+                                <input type="url" name="githubProfile" id="githubProfile"
+                                    placeholder="https://github.com/username">
+                            </div>
+                            <div class="form-group floating">
+                                <label>LinkedIn Profile</label>
+                                <input type="url" name="linkedinProfile" id="linkedinProfile"
+                                    placeholder="https://linkedin.com/in/username">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab: Emergency Contact -->
+                    <div class="tab-panel" id="emergency">
+                        <div class="panel-header">
+                            <h2>🚨 Emergency Contact</h2>
+                            <p>Important information for safety and communication</p>
+                        </div>
+                        <div class="form-grid">
+                            <div class="form-group floating">
+                                <label>Guardian Name</label>
+                                <input type="text" name="guardianName" id="guardianName" placeholder="Full Name">
+                            </div>
+                            <div class="form-group floating">
+                                <label>Guardian Phone</label>
+                                <input type="tel" name="guardianPhone" id="guardianPhone" placeholder="+880 1234567890">
+                            </div>
+                            <div class="form-group floating">
+                                <label>Relationship</label>
+                                <select name="guardianRelationship" id="guardianRelationship">
+                                    <option value="">Select</option>
+                                    <option value="Father">Father</option>
+                                    <option value="Mother">Mother</option>
+                                    <option value="Guardian">Guardian</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab: Account Settings -->
+                    <div class="tab-panel" id="account">
+                        <div class="panel-header">
+                            <h2>⚙️ Account Settings</h2>
+                            <p>Danger zone and account-level configurations</p>
+                        </div>
+
+                        <div class="danger-box">
+                            <div class="danger-info">
+                                <h3>Delete Account</h3>
+                                <p>Once you delete your account, there is no going back. All your data will be
+                                    permanently removed.</p>
+                            </div>
+                            <button type="button" class="btn btn-danger-outline" id="delete-account-btn">Delete My
+                                Account</button>
+                        </div>
+                    </div>
+
+                    <!-- Persistent Actions -->
+                    <div class="form-sticky-footer">
+                        <button type="button" class="btn btn-secondary"
+                            onclick="window.location.href='dashboard.html'">Discard Changes</button>
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </div>
+                </form>
+            </main>
+        </div>
+    </section>
+
+    <!-- Simple Search Modal -->
+    <div class="search-modal" id="search-modal">
+        <div class="search-modal-overlay" id="search-overlay"></div>
+        <div class="search-modal-content">
+            <div class="search-header">
+                <input type="text" class="search-input" id="search-input"
+                    placeholder="Search courses, topics, resources..." autocomplete="off">
+                <button class="search-close" id="search-close">&times;</button>
+            </div>
+            <div class="search-results" id="search-results">
+                <div class="search-placeholder">
+                    <span class="search-icon">🔍</span>
+                    <p>Start typing to search...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Crop Image Modal -->
+    <div class="crop-modal" id="crop-modal">
+        <div class="crop-modal-content">
+            <div class="crop-header">
+                <h3>Crop Profile Picture</h3>
+                <button type="button" class="close-crop" id="close-crop">&times;</button>
+            </div>
+            <div class="crop-body">
+                <div class="img-container">
+                    <img id="crop-image" src="" alt="To Crop">
+                </div>
+            </div>
+            <div class="crop-footer">
+                <button type="button" class="btn btn-secondary" id="cancel-crop">Cancel</button>
+                <button type="button" class="btn btn-primary" id="save-crop">Crop & Upload</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="src/scripts/script.js"></script>
+    <script src="src/scripts/search.js"></script>
+    <script src="src/scripts/dashboard.js"></script>
+    <script src="src/scripts/profile-edit.js"></script>
+</body>
+
+</html>

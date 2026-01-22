@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IIUC CSE - Academic Comeback</title>
+    <meta name="description"
+        content="The ultimate academic recovery platform for CSE students of International Islamic University Chittagong. Bounce back this semester!">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="src/styles/styles.css">
+</head>
+
+<body>
+    <div id="notification-container"></div>
+
+    <!-- Premium Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Part 1: Logo -->
+            <div class="nav-logo">
+                <a href="#home">
+                    <img src="assets/logo.png" alt="Academic Comeback" class="logo-image">
+                </a>
+            </div>
+
+            <!-- Part 2: Centered Menus -->
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="about.html" class="nav-link">About Us</a></li>
+                <li><a href="#community" class="nav-link">Community</a></li>
+                <li><a href="#testimonials" class="nav-link">Success Stories</a></li>
+            </ul>
+
+            <!-- Part 3: Auth Options -->
+            <div class="nav-auth">
+                <button class="btn btn-text" id="login-btn">Log In</button>
+                <button class="btn btn-primary" id="signup-btn">Sign Up</button>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-toggle" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-background">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="gradient-orb orb-3"></div>
+        </div>
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-icon">✨</span>
+                    <span>Free for All Students</span>
+                </div>
+                <h1 class="hero-title">
+                    Make Your
+                    <span class="gradient-text">Academic Comeback</span>
+                    This Semester
+                </h1>
+                <p class="hero-description">
+                    Struggling with your courses? Need to fix your CGPA?
+                    Join the ultimate platform designed to help you bounce back stronger. Completely free.
+                </p>
+                <div class="hero-cta">
+                    <button class="btn btn-primary btn-large" id="cta-hero">Start Journey</button>
+                    <button class="btn btn-secondary btn-large" id="watch-demo">
+                        <span class="play-icon">▶</span>
+                        Watch Intro
+                    </button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" id="stat-students">0</div>
+                        <div class="stat-label">Students</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="stat-access">100%</div>
+                        <div class="stat-label">Free Access</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="stat-courses">81</div>
+                        <div class="stat-label">Courses</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="floating-card card-1">
+                    <div class="card-icon">📚</div>
+                    <div class="card-content">
+                        <div class="card-title">Study Plan</div>
+                        <div class="card-progress">
+                            <div class="progress-bar" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="floating-card card-2">
+                    <div class="card-icon">📝</div>
+                    <div class="card-content">
+                        <div class="card-title">Exam Prep</div>
+                        <div class="card-tag">High Priority</div>
+                    </div>
+                </div>
+                <div class="floating-card card-3">
+                    <div class="card-icon">🏆</div>
+                    <div class="card-content">
+                        <div class="card-title">Dean's List</div>
+                        <div class="card-subtitle">CGPA 3.75+ Unlocked</div>
+                    </div>
+                </div>
+                <div class="hero-illustration">
+                    <div class="illustration-circle"></div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why Choose <span class="gradient-text">This Platform?</span></h2>
+                <p class="section-description">Tailored specifically for your university curriculum and challenges.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3 class="feature-title">Roadmap to 4.00</h3>
+                    <p class="feature-description">Step-by-step guides helping you navigate through the toughest
+                        semesters and secure that Dean's List spot.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3 class="feature-title">Peer Mentorship</h3>
+                    <p class="feature-description">Connect with seniors who have aced the same courses and solved the
+                        same academic challenges.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3 class="feature-title">Resource Library</h3>
+                    <p class="feature-description">Access curated notes, textbooks, and lecture slides relevant to your
+                        current courses.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3 class="feature-title">Smart Revision</h3>
+                    <p class="feature-description">Scientific study techniques and past paper analysis to help you crush
+                        your finals and midterms.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- About Us Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About <span class="gradient-text">Academic Comeback</span></h2>
+                <p class="section-description">Empowering students to achieve their full potential</p>
+            </div>
+            <div class="about-content">
+                <div class="about-card">
+                    <div class="about-icon">🎯</div>
+                    <h3 class="about-card-title">Our Mission</h3>
+                    <p class="about-card-text">To provide accessible, high-quality education that transforms struggling
+                        students into confident achievers through personalized learning experiences.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">🌟</div>
+                    <h3 class="about-card-title">Our Vision</h3>
+                    <p class="about-card-text">A world where every student has the tools, support, and confidence to
+                        excel academically and reach their dreams.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">💡</div>
+                    <h3 class="about-card-title">Our Approach</h3>
+                    <p class="about-card-text">Combining cutting-edge technology with proven teaching methods to create
+                        engaging, effective learning paths tailored to each student.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section class="community" id="community">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Join the <span class="gradient-text">Student Community</span></h2>
+                <p class="section-description">You don't have to study alone. Join a community of driven students.</p>
+            </div>
+            <div class="community-grid">
+                <div class="community-card">
+                    <div class="community-icon">💬</div>
+                    <h3 class="community-title">Student Forums</h3>
+                    <p class="community-description">Ask about course topics, clarification, or semester advice.</p>
+                    <button class="btn btn-secondary">Join Discussion</button>
+                </div>
+                <div class="community-card">
+                    <div class="community-icon">🏆</div>
+                    <h3 class="community-title">Top Achievers</h3>
+                    <p class="community-description">See who's achieved the highest CGPA in the current semester.</p>
+                    <button class="btn btn-secondary">View Rankings</button>
+                </div>
+                <div class="community-card">
+                    <div class="community-icon">👥</div>
+                    <h3 class="community-title">Study Groups</h3>
+                    <p class="community-description">Find partners for your projects and group studies.</p>
+                    <button class="btn btn-secondary">Find Group</button>
+                </div>
+                <div class="community-card">
+                    <div class="community-icon">📅</div>
+                    <h3 class="community-title">Academic Events</h3>
+                    <p class="community-description">Workshops on Research, Career Development, and Soft Skills.</p>
+                    <button class="btn btn-secondary">Check Events</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="courses" id="courses">
+
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured <span class="gradient-text">Courses</span></h2>
+                <p class="section-description">Master the core CSE subjects with our specialized tracks.</p>
+            </div>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-image">
+                        <div class="course-badge">Core</div>
+                        <div class="course-thumbnail math-bg">
+                            <span class="course-emoji">💻</span>
+                        </div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Structured Programming (C)</h3>
+                        <p class="course-description">Master the basics of C programming, pointers, and memory
+                            management.</p>
+                        <div class="course-meta">
+                            <span class="course-students">👥 500+ students</span>
+                            <span class="course-rating">⭐ 4.9</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-image">
+                        <div class="course-badge new-badge">Hard</div>
+                        <div class="course-thumbnail science-bg">
+                            <span class="course-emoji">🌳</span>
+                        </div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Data Structures</h3>
+                        <p class="course-description">Learn Lists, Stacks, Queues, Trees, and Graphs for efficient
+                            coding.</p>
+                        <div class="course-meta">
+                            <span class="course-students">👥 300+ students</span>
+                            <span class="course-rating">⭐ 4.8</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-image">
+                        <div class="course-thumbnail language-bg">
+                            <span class="course-emoji">⚡</span>
+                        </div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Algorithms</h3>
+                        <p class="course-description">Master sorting, searching, DP, and Graph algorithms for contests.
+                        </p>
+                        <div class="course-meta">
+                            <span class="course-students">👥 200+ students</span>
+                            <span class="course-rating">⭐ 4.9</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Success <span class="gradient-text">Stories</span></h2>
+                <p class="section-description">Real students, real transformations</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"I went from failing math to getting an A+ in just one semester! The
+                        personalized approach really works."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">👨‍🎓</div>
+                        <div class="author-info">
+                            <div class="author-name">Alex Johnson</div>
+                            <div class="author-role">High School Senior</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"The tutors are amazing! They explain complex concepts in ways that
+                        actually make sense. Game changer!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">👩‍🎓</div>
+                        <div class="author-info">
+                            <div class="author-name">Sarah Martinez</div>
+                            <div class="author-role">College Freshman</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Academic Comeback helped me get into my dream university. The progress
+                        tracking kept me motivated every day."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">👨‍🎓</div>
+                        <div class="author-info">
+                            <div class="author-name">Michael Chen</div>
+                            <div class="author-role">University Student</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to Start Your Comeback?</h2>
+                <p class="cta-description">Join your classmates and start improving your CGPA today.</p>
+                <button class="btn btn-primary btn-large" id="cta-final">Join Now - It's Free</button>
+                <p class="cta-note">Dedicated to Academic Excellence • Completely Free for Students</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span class="logo-icon">🎓</span>
+                        <span class="logo-text">IIUC CSE COMEBACK</span>
+                    </div>
+                    <p class="footer-description">Empowering IIUC CSE students to achieve their academic and career
+                        dreams through community and guidance.</p>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Platform</h4>
+                    <ul class="footer-links">
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="coming-soon.html">Mentorship</a></li>
+                        <li><a href="#testimonials">Stories</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Department</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Initiative</a></li>
+                        <li><a href="coming-soon.html">CR Contacts</a></li>
+                        <li><a href="coming-soon.html">Notices</a></li>
+                        <li><a href="coming-soon.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Student Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="coming-soon.html">Help Center</a></li>
+                        <li><a href="coming-soon.html">Privacy Policy</a></li>
+                        <li><a href="coming-soon.html">Terms of Service</a></li>
+                        <li><a href="coming-soon.html">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 IIUC CSE Academic Comeback. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="#discord" class="social-link">Discord</a>
+                    <a href="#facebook" class="social-link">Facebook Group</a>
+                    <a href="#github" class="social-link">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal" id="login-modal">
+        <div class="modal-overlay" id="login-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="login-close">&times;</button>
+            <h2 class="modal-title">Welcome Back!</h2>
+            <p class="modal-subtitle">Log in to continue your learning journey</p>
+            <form class="auth-form" id="login-form">
+                <div class="form-group">
+                    <label for="login-id">University ID</label>
+                    <input type="text" id="login-id" placeholder="e.g. C241079" required
+                        style="text-transform: uppercase;">
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" placeholder="Enter your password" required>
+                </div>
+                <div class="form-options">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="remember-me">
+                        <span>Remember me</span>
+                    </label>
+                    <a href="#forgot" class="forgot-link">Forgot password?</a>
+                </div>
+                <button type="submit" class="btn btn-primary btn-large" style="width: 100%;">Log In</button>
+            </form>
+            <div class="modal-footer">
+                <p>Don't have an account? <a href="#" id="switch-to-signup" class="link-primary">Sign up</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div class="modal" id="signup-modal">
+        <div class="modal-overlay" id="signup-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="signup-close">&times;</button>
+            <h2 class="modal-title">Start Your Comeback!</h2>
+            <p class="modal-subtitle">Create an account to begin your journey</p>
+            <form class="auth-form" id="signup-form">
+                <div class="form-group">
+                    <label for="signup-name">Full Name</label>
+                    <input type="text" id="signup-name" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-id">University ID</label>
+                    <input type="text" id="signup-id" placeholder="e.g. C241079" required
+                        style="text-transform: uppercase;">
+                </div>
+                <div class="form-group">
+                    <label for="signup-semester">Current Semester</label>
+                    <select id="signup-semester" required>
+                        <option value="">Select Semester</option>
+                        <option value="1">1st Semester</option>
+                        <option value="2">2nd Semester</option>
+                        <option value="3">3rd Semester</option>
+                        <option value="4">4th Semester</option>
+                        <option value="5">5th Semester</option>
+                        <option value="6">6th Semester</option>
+                        <option value="7">7th Semester</option>
+                        <option value="8">8th Semester</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="signup-email">Email</label>
+                    <input type="email" id="signup-email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" placeholder="Create a password" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-confirm">Confirm Password</label>
+                    <input type="password" id="signup-confirm" placeholder="Confirm your password" required>
+                </div>
+                <label class="checkbox-label" style="margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="terms" required>
+                    <span>I agree to the <a href="#terms" class="link-primary">Terms & Conditions</a></span>
+                </label>
+                <button type="submit" class="btn btn-primary btn-large" style="width: 100%;">Sign Up</button>
+            </form>
+            <div class="modal-footer">
+                <p>Already have an account? <a href="#" id="switch-to-login" class="link-primary">Log in</a></p>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Navigation Sidebar (Moved outside Navbar for better Z-Index handling) -->
+
+
+    <script src="src/scripts/script.js"></script>
+    <script src="src/scripts/mobile-menu.js"></script>
+</body>
+
+</html>

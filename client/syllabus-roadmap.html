@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syllabus Roadmap - Academic Comeback</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="src/styles/styles.css">
+    <style>
+        .roadmap-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        /* Connecting Line */
+        .roadmap-container::before {
+            content: '';
+            position: absolute;
+            top: 50px;
+            bottom: 50px;
+            left: 50%;
+            width: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(-50%);
+            border-radius: 4px;
+        }
+
+        .roadmap-segment {
+            position: relative;
+            margin-bottom: 60px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .segment-content {
+            width: 45%;
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            position: relative;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .segment-content:hover {
+            transform: translateY(-5px);
+            border-color: rgba(102, 126, 234, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Align items alternating */
+        .roadmap-segment:nth-child(odd) .segment-content {
+            margin-right: auto;
+            margin-left: 0;
+        }
+
+        .roadmap-segment:nth-child(even) .segment-content {
+            margin-left: auto;
+            margin-right: 0;
+        }
+
+        /* Marker on the line */
+        .roadmap-marker {
+            position: absolute;
+            left: 50%;
+            top: 20px;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: var(--bg-main);
+            border: 4px solid var(--primary-color);
+            border-radius: 50%;
+            z-index: 2;
+            box-shadow: 0 0 15px var(--primary-color);
+        }
+
+        /* Connector from card to line */
+        .roadmap-segment:nth-child(odd) .segment-content::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: -10.5%;
+            width: 10.5%;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .roadmap-segment:nth-child(even) .segment-content::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: -10.5%;
+            width: 10.5%;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .segment-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .topic-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .topic-item {
+            margin-bottom: 1rem;
+        }
+
+        .topic-name {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .subtopic-list {
+            list-style: none;
+            padding-left: 1rem;
+            border-left: 2px solid rgba(255, 255, 255, 0.1);
+            margin-left: 0.2rem;
+        }
+
+        .subtopic-item {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+            position: relative;
+        }
+
+        .subtopic-item::before {
+            content: '•';
+            color: var(--primary-color);
+            margin-right: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .roadmap-container::before {
+                left: 20px;
+            }
+
+            .roadmap-marker {
+                left: 20px;
+            }
+
+            .segment-content {
+                width: 85%;
+                margin-left: 50px !important;
+                margin-right: 0 !important;
+            }
+
+            .roadmap-segment:nth-child(odd) .segment-content::after,
+            .roadmap-segment:nth-child(even) .segment-content::before {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/logo.png" alt="Academic Comeback" class="logo-image">
+                </a>
+            </div>
+            <div class="nav-actions">
+                <button class="btn btn-secondary" onclick="window.history.back()">← Back</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="hero dashboard-hero" style="min-height: 30vh; padding-top: 120px;">
+        <div class="container">
+            <div class="dashboard-hero-content">
+                <h1 class="hero-title" style="font-size: 2.5rem;">
+                    Course <span class="gradient-text">Roadmap</span>
+                </h1>
+                <p class="hero-description" id="course-header">
+                    Loading...
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap -->
+    <section class="section-padding" style="padding-top: 0;">
+        <div class="container">
+            <div class="roadmap-container" id="roadmap-content">
+                <div class="loading-message">Loading Roadmap...</div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 Academic Comeback. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        async function loadRoadmap() {
+            const params = new URLSearchParams(window.location.search);
+            const courseCode = params.get('code');
+            const term = params.get('term');
+
+            if (!courseCode || !term) {
+                alert('Invalid roadmap parameters');
+                window.history.back();
+                return;
+            }
+
+            try {
+                const response = await fetch('http://localhost:3000/api/my-courses', { credentials: 'include' });
+                const data = await response.json();
+
+                if (data.success) {
+                    const course = data.courses.find(c => c.code === courseCode);
+                    if (course) {
+                        document.getElementById('course-header').textContent = `${course.code} - ${course.title} (${term === 'mid' ? 'Mid Term' : 'Final Term'})`;
+
+                        const termData = term === 'mid' ? course.mid : course.final;
+                        const roadmap = termData.roadmap;
+
+                        if (roadmap && roadmap.length > 0) {
+                            const container = document.getElementById('roadmap-content');
+                            container.innerHTML = roadmap.map((segment, index) => `
+                                <div class="roadmap-segment">
+                                    <div class="roadmap-marker"></div>
+                                    <div class="segment-content">
+                                        <h3 class="segment-title">${segment.title}</h3>
+                                        <ul class="topic-list">
+                                            ${segment.topics.map(topic => `
+                                                <li class="topic-item">
+                                                    <span class="topic-name">${topic.name}</span>
+                                                    ${topic.subtopics.length > 0 ? `
+                                                        <ul class="subtopic-list">
+                                                            ${topic.subtopics.map(sub => `
+                                                                <li class="subtopic-item">${sub}</li>
+                                                            `).join('')}
+                                                        </ul>
+                                                    ` : ''}
+                                                </li>
+                                            `).join('')}
+                                        </ul>
+                                    </div>
+                                </div>
+                            `).join('');
+                        } else {
+                            document.getElementById('roadmap-content').innerHTML = `
+                                <div class="loading-message">
+                                    Roadmap hasn't been created for this course yet.
+                                    <br>
+                                    <button class="btn btn-secondary" style="margin-top:20px;" onclick="window.history.back()">Go Back</button>
+                                </div>
+                            `;
+                        }
+                    }
+                }
+            } catch (error) {
+                console.error("Error loading roadmap", error);
+                document.getElementById('roadmap-content').innerHTML = '<div class="loading-message">Error loading roadmap.</div>';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', loadRoadmap);
+    </script>
+</body>
+
+</html>
