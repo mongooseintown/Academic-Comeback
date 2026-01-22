@@ -223,6 +223,14 @@ const userSchema = new mongoose.Schema({
         createdAt: { type: Date, default: Date.now }
     }],
 
+    // Academic Progress Tracking (Completed Course Segments)
+    academicProgress: [{
+        courseCode: { type: String, required: true },
+        term: { type: String, enum: ['mid', 'final'], required: true },
+        segmentId: { type: Number, required: true },
+        completedAt: { type: Date, default: Date.now }
+    }],
+
     createdAt: {
         type: Date,
         default: Date.now
@@ -1053,6 +1061,59 @@ app.patch('/api/tasks/:id', async (req, res) => {
         res.json({ success: true, task });
     } catch (error) {
         console.error('Error toggling task:', error);
+        res.status(500).json({ success: false, message: 'Server error' });
+    }
+});
+
+
+// ==================== ACADEMIC PROGRESS TRACKING ====================
+
+// Toggle academic segment completion
+app.post('/api/academic-progress/toggle', async (req, res) => {
+    try {
+        if (!req.session.userId) {
+            return res.status(401).json({ success: false, message: 'Not authenticated' });
+        }
+
+        const { courseCode, term, segmentId } = req.body;
+
+        if (!courseCode || !term || segmentId === undefined) {
+            return res.status(400).json({ success: false, message: 'Missing required fields' });
+        }
+
+        const user = await User.findById(req.session.userId);
+        if (!user) {
+            return res.status(404).json({ success: false, message: 'User not found' });
+        }
+
+        // Check if segment is already completed
+        const existingIndex = (user.academicProgress || []).findIndex(
+            p => p.courseCode === courseCode && p.term === term && p.segmentId === Number(segmentId)
+        );
+
+        if (existingIndex > -1) {
+            // Remove it (Toggle OFF)
+            user.academicProgress.splice(existingIndex, 1);
+        } else {
+            // Add it (Toggle ON)
+            if (!user.academicProgress) user.academicProgress = [];
+            user.academicProgress.push({
+                courseCode,
+                term,
+                segmentId: Number(segmentId),
+                completedAt: Date.now()
+            });
+        }
+
+        await user.save();
+        res.json({
+            success: true,
+            message: existingIndex > -1 ? 'Progress removed' : 'Progress saved',
+            academicProgress: user.academicProgress
+        });
+
+    } catch (error) {
+        console.error('Error toggling academic progress:', error);
         res.status(500).json({ success: false, message: 'Server error' });
     }
 });

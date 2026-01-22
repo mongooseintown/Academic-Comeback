@@ -98,6 +98,16 @@
                 <p class="hero-description" id="page-course-code">
                     Loading...
                 </p>
+                <!-- Academic Progress Bar -->
+                <div class="course-progress-container">
+                    <div class="course-progress-label">
+                        <span>Academic Progress</span>
+                        <span id="course-progress-text">0% Complete</span>
+                    </div>
+                    <div class="course-progress-track">
+                        <div class="course-progress-fill" id="course-progress-fill" style="width: 0%"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -205,6 +215,7 @@
         // Global variables for segment navigation
         let currentCourseData = null;
         let currentTerm = null;
+        let userAcademicProgress = [];
 
         function openSegment(num) {
             const segmentsSection = document.getElementById('course-segments');
@@ -239,6 +250,85 @@
                     </div>
                 `).join('');
             }
+        }
+
+        async function toggleSegment(e, num) {
+            e.stopPropagation(); // Avoid opening the segment detail
+            const params = new URLSearchParams(window.location.search);
+            const courseCode = params.get('code');
+            const term = params.get('term');
+
+            try {
+                const response = await fetch('/api/academic-progress/toggle', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    credentials: 'include',
+                    body: JSON.stringify({ courseCode, term, segmentId: num })
+                });
+
+                const data = await response.json();
+                if (data.success) {
+                    userAcademicProgress = data.academicProgress;
+                    updateSegmentUI();
+                    showNotification(data.message === 'Progress saved' ? '✅ Segment marked as completed!' : 'ℹ️ Segment unmarked.', 'info');
+                }
+            } catch (error) {
+                console.error('Error toggling progress:', error);
+            }
+        }
+
+        function updateSegmentUI() {
+            const params = new URLSearchParams(window.location.search);
+            const courseCode = params.get('code');
+            const term = params.get('term');
+
+            // Find all segment cards
+            const segmentCards = document.querySelectorAll('.segment-card');
+            let completedCount = 0;
+
+            segmentCards.forEach((card, index) => {
+                const segmentId = index + 1;
+                const isCompleted = userAcademicProgress.some(
+                    p => p.courseCode === courseCode && p.term === term && p.segmentId === segmentId
+                );
+
+                if (isCompleted) {
+                    card.classList.add('completed');
+                    completedCount++;
+                    // Ensure checkmark exists
+                    if (!card.querySelector('.segment-badge-status')) {
+                        const badge = document.createElement('div');
+                        badge.className = 'segment-badge-status';
+                        badge.innerHTML = '✅';
+                        card.appendChild(badge);
+                    }
+                } else {
+                    card.classList.remove('completed');
+                    const badge = card.querySelector('.segment-badge-status');
+                    if (badge) badge.remove();
+                }
+
+                // Add toggle button if not exists
+                if (!card.querySelector('.segment-toggle-btn')) {
+                    const toggleBtn = document.createElement('button');
+                    toggleBtn.className = 'btn-segment-toggle';
+                    toggleBtn.innerHTML = 'Mark Done';
+                    toggleBtn.onclick = (e) => toggleSegment(e, segmentId);
+                    card.appendChild(toggleBtn);
+                } else {
+                    const toggleBtn = card.querySelector('.btn-segment-toggle');
+                    toggleBtn.innerHTML = isCompleted ? 'Completed' : 'Mark Done';
+                }
+            });
+
+            // Update Progress Bar
+            const totalSegments = segmentCards.length;
+            const percentage = totalSegments > 0 ? Math.round((completedCount / totalSegments) * 100) : 0;
+            const progressFill = document.getElementById('course-progress-fill');
+            const progressText = document.getElementById('course-progress-text');
+
+            if (progressFill) progressFill.style.width = percentage + '%';
+            if (progressText) progressText.textContent = `${percentage}% Complete`;
         }
 
         function backToSegments() {
@@ -335,12 +425,6 @@
                 return;
             }
 
-            // Show/Hide Segments based on term
-            const segmentsSection = document.getElementById('course-segments');
-            if (term !== 'mid') {
-                if (segmentsSection) segmentsSection.style.display = 'none';
-            }
-
             // Set UI texts
             document.getElementById('page-course-code').textContent = code;
             if (title) document.getElementById('page-course-title').textContent = decodeURIComponent(title);
@@ -355,16 +439,9 @@
                         if (course) {
                             currentCourseData = course;
                             document.getElementById('page-course-title').textContent = course.title;
+                            userAcademicProgress = data.user.academicProgress || [];
 
-                            const termData = term === 'mid' ? course.mid : course.final;
-
-                            // Setup Data
-                            document.getElementById('page-syllabus').textContent = termData.syllabus || 'No syllabus available.';
-
-                            const resourceContainer = document.getElementById('page-resources');
-                            resourceContainer.innerHTML = (termData.resources && termData.resources.length > 0)
-                                ? termData.resources.map(r => `<a href="${r.link}" target="_blank" class="resource-item">${r.name}</a>`).join('')
-                                : '<p class="text-muted">No resources available yet.</p>';
+                            updateSegmentUI(); // Apply checkmarks to segments
 
                             // Load sidebar info
                             if (window.updateUserInfo && data.user) {

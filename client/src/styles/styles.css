@@ -4579,6 +4579,79 @@ section {
     margin: 0;
 }
 
+.segment-card.completed {
+    border-color: #10b981;
+    background: rgba(16, 185, 129, 0.05);
+}
+
+.segment-badge-status {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.2rem;
+    background: rgba(16, 185, 129, 0.2);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: bounceIn 0.5s ease;
+}
+
+.btn-segment-toggle {
+    margin-top: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+.btn-segment-toggle:hover {
+    background: var(--primary-gradient);
+    border-color: transparent;
+    transform: translateY(-2px);
+}
+
+.segment-card.completed .btn-segment-toggle {
+    background: #10b981;
+    border-color: transparent;
+}
+
+/* Course Progress Bar in Hero */
+.course-progress-container {
+    margin-top: 1.5rem;
+    max-width: 400px;
+}
+
+.course-progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.course-progress-track {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.course-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #10b981, #34d399);
+    width: 0%;
+    transition: width 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
 /* Premium Layout Organization */
 .resource-section {
     margin-top: 1rem;
