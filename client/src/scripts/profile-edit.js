@@ -366,15 +366,18 @@ async function saveProfile() {
                 updateProgress(data.completionPercentage);
             }
 
-            // Optional: Update sidebar preview if user data returned
+            // Update sidebar preview if user data returned
             if (data.user) {
                 updateSidebarPreview(data.user);
             }
 
-            // Short delay before redirect
-            setTimeout(() => {
-                window.location.href = 'dashboard.html';
-            }, 1500);
+            // Reset button after successful save
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+            }
+
+            formChanged = false; // Reset change tracker
         } else {
             throw new Error(data.message || 'Update failed');
         }
