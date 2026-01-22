@@ -220,7 +220,7 @@ function setupFormHandlers() {
                 }
 
                 // Show notification but don't upload yet
-                showNotification('Picture selected! Click Save Changes to update.', 'info');
+                showNotification('Picture cropped successfully! Please click "Save Changes" at the bottom to upload.', 'info');
                 closeCropModal();
             }, 'image/jpeg');
         });
@@ -301,6 +301,7 @@ async function saveProfile() {
         if (submitBtn) {
             submitBtn.disabled = true;
             submitBtn.textContent = 'Saving...';
+            showNotification('Saving your profile changes...', 'info');
         }
 
         // 1. Upload profile picture if one was selected
