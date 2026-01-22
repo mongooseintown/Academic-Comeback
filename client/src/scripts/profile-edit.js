@@ -26,9 +26,9 @@ function trackFormChanges() {
     });
 
     // Handle discard button
-    const discardBtn = document.querySelector('.form-sticky-footer .btn-secondary');
+    const discardBtn = document.getElementById('discard-changes-btn');
     if (discardBtn) {
-        discardBtn.onclick = (e) => {
+        discardBtn.addEventListener('click', (e) => {
             e.preventDefault();
             if (formChanged || profilePictureBlob) {
                 if (confirm('You have unsaved changes. Are you sure you want to discard them?')) {
@@ -37,7 +37,7 @@ function trackFormChanges() {
             } else {
                 window.location.href = 'dashboard.html';
             }
-        };
+        });
     }
 }
 
@@ -378,6 +378,7 @@ async function saveProfile() {
             }
 
             formChanged = false; // Reset change tracker
+            console.log('Profile saved successfully. Staying on page as requested.');
         } else {
             throw new Error(data.message || 'Update failed');
         }
