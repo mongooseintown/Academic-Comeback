@@ -335,78 +335,39 @@ watchDemoButton.addEventListener('click', () => {
     showNotification('🎬 Demo video coming soon!');
 });
 
-// ==================== NOTIFICATION SYSTEM ====================
-function showNotification(message) {
-    // Remove existing notification if any
-    const existingNotification = document.querySelector('.notification');
-    if (existingNotification) {
-        existingNotification.remove();
-    }
+// ==================== GLOBAL NOTIFICATION SYSTEM ====================
+window.showNotification = function (message, type = 'info') {
+    // Remove existing notifications to avoid stacking issues
+    const existingNotifications = document.querySelectorAll('.global-notification');
+    existingNotifications.forEach(n => n.remove());
 
-    // Create notification element
     const notification = document.createElement('div');
-    notification.className = 'notification';
-    notification.textContent = message;
+    notification.className = `global-notification notification-${type}`;
 
-    // Add styles
-    Object.assign(notification.style, {
-        position: 'fixed',
-        top: '120px', // Aligned with hero section
-        right: '30px', // Right side
-        left: 'auto', // Reset left
-        transform: 'none', // Reset transform
-        color: 'white',
-        padding: '1rem 2rem',
-        borderRadius: '1rem',
-        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)',
-        zIndex: '10000',
-        fontSize: '1rem',
-        fontWeight: '600',
-        animation: 'slideInRight 0.5s ease-out forwards', // Changed animation
-        backdropFilter: 'blur(10px)',
-        textAlign: 'center', // Ensure text is centered
-        minWidth: '300px'    // ensure it's not too small
-    });
+    let icon = 'ℹ️';
+    if (type === 'success') icon = '✅';
+    if (type === 'error') icon = '❌';
+    if (type === 'warning') icon = '⚠️';
 
-    // Add animation keyframes
-    if (!document.querySelector('#notification-styles')) {
-        const style = document.createElement('style');
-        style.id = 'notification-styles';
-        style.textContent = `
-            @keyframes slideInRight {
-                from {
-                    transform: translateX(50px);
-                    opacity: 0;
-                }
-                to {
-                    transform: translateX(0);
-                    opacity: 1;
-                }
-            }
-            @keyframes slideOutRight {
-                from {
-                    transform: translateX(0);
-                    opacity: 1;
-                }
-                to {
-                    transform: translateX(50px);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
-    }
+    notification.innerHTML = `
+        <div class="notification-content">
+            <span class="notification-icon">${icon}</span>
+            <span class="notification-message">${message}</span>
+        </div>
+        <div class="notification-progress"></div>
+    `;
 
     document.body.appendChild(notification);
 
-    // Remove notification after 2 seconds
+    // Trigger animation
+    setTimeout(() => notification.classList.add('active'), 10);
+
+    // Auto-remove
     setTimeout(() => {
-        notification.style.animation = 'slideOutRight 0.5s ease-in forwards';
-        setTimeout(() => {
-            notification.remove();
-        }, 500);
-    }, 2000);
-}
+        notification.classList.remove('active');
+        setTimeout(() => notification.remove(), 500);
+    }, 4000);
+};
 
 // ==================== PRICING CARD INTERACTIONS ====================
 const pricingCards = document.querySelectorAll('.pricing-card');

@@ -466,25 +466,4 @@ function setupTabNavigation() {
 }
 
 // Show notification
-function showNotification(message, type = 'info') {
-    const notification = document.createElement('div');
-    notification.className = `notification notification-${type} animate-in`;
-
-    // Add icon based on message content
-    let icon = 'ℹ️';
-    if (type === 'success' || message.includes('✅')) icon = '✅';
-    if (type === 'error' || message.includes('❌')) icon = '❌';
-
-    notification.innerHTML = `
-        <span class="notification-icon">${icon}</span>
-        <span class="notification-message">${message.replace(/[✅❌]/g, '').trim()}</span>
-    `;
-
-    document.body.appendChild(notification);
-
-    setTimeout(() => {
-        notification.classList.remove('animate-in');
-        notification.classList.add('animate-out');
-        setTimeout(() => notification.remove(), 400);
-    }, 3000);
-}
+// End of profile-edit.js
