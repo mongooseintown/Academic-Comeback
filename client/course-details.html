@@ -348,7 +348,7 @@
 
             async function loadCourseData() {
                 try {
-                    const response = await fetch('http://localhost:3000/api/user-courses', { credentials: 'include' });
+                    const response = await fetch('/api/user-courses', { credentials: 'include' });
                     const data = await response.json();
                     if (data.success) {
                         const course = data.courses.find(c => c.code === code);

@@ -4,7 +4,7 @@ let currentUser = null;
 // ==================== AUTHENTICATION CHECK ====================
 document.addEventListener('DOMContentLoaded', async () => {
     try {
-        const response = await fetch('http://localhost:3000/api/check-auth', {
+        const response = await fetch('/api/check-auth', {
             credentials: 'include'
         });
         const data = await response.json();
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (logoutBtn) {
         logoutBtn.addEventListener('click', async () => {
             try {
-                await fetch('http://localhost:3000/api/logout', { method: 'POST', credentials: 'include' });
+                await fetch('/api/logout', { method: 'POST', credentials: 'include' });
                 window.location.href = 'index.html';
             } catch (error) {
                 console.error('Logout failed', error);
@@ -75,7 +75,7 @@ async function loadAcademicProgress() {
     if (!container) return;
 
     try {
-        const response = await fetch('http://localhost:3000/api/user-courses', { credentials: 'include' });
+        const response = await fetch('/api/user-courses', { credentials: 'include' });
         const data = await response.json();
 
         if (data.success && data.courses && data.courses.length > 0) {

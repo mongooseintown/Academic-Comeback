@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     try {
-        const response = await fetch('http://localhost:3000/api/check-auth', {
+        const response = await fetch('/api/check-auth', {
             credentials: 'include'
         });
         const data = await response.json();
@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (logoutBtn) {
         logoutBtn.addEventListener('click', async () => {
             try {
-                await fetch('http://localhost:3000/api/logout', { method: 'POST', credentials: 'include' });
+                await fetch('/api/logout', { method: 'POST', credentials: 'include' });
                 window.location.href = 'index.html';
             } catch (error) {
                 console.error('Logout failed', error);
@@ -186,7 +186,7 @@ function showNotification(message, type = 'success') {
 // Load all available courses from server
 async function loadAvailableCourses() {
     try {
-        const response = await fetch('http://localhost:3000/api/all-courses', {
+        const response = await fetch('/api/all-courses', {
             credentials: 'include'
         });
 
@@ -253,7 +253,7 @@ function renderAvailableCourses() {
 
 window.addCourseToProfile = async function (courseCode) {
     try {
-        const response = await fetch('http://localhost:3000/api/add-course', {
+        const response = await fetch('/api/add-course', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -290,7 +290,7 @@ async function loadMyCourses() {
     if (!coursesGrid) return; // Not on my-courses page
 
     try {
-        const response = await fetch('http://localhost:3000/api/user-courses', {
+        const response = await fetch('/api/user-courses', {
             credentials: 'include'
         });
 
@@ -378,7 +378,7 @@ window.removeExtraCourse = async function (courseCode) {
     if (!confirm('Are you sure you want to remove this course?')) return;
 
     try {
-        const response = await fetch('http://localhost:3000/api/remove-course', {
+        const response = await fetch('/api/remove-course', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -487,7 +487,7 @@ async function loadDashboardProgress() {
     if (!container) return;
 
     try {
-        const response = await fetch('http://localhost:3000/api/user-courses', { credentials: 'include' });
+        const response = await fetch('/api/user-courses', { credentials: 'include' });
         const data = await response.json();
 
         if (data.success && data.courses && data.courses.length > 0) {

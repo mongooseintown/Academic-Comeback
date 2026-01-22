@@ -4,7 +4,7 @@ let currentUser = null;
 // ==================== AUTHENTICATION CHECK ====================
 document.addEventListener('DOMContentLoaded', async () => {
     try {
-        const response = await fetch('http://localhost:3000/api/check-auth', {
+        const response = await fetch('/api/check-auth', {
             credentials: 'include'
         });
         const data = await response.json();
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (logoutBtn) {
         logoutBtn.addEventListener('click', async () => {
             try {
-                await fetch('http://localhost:3000/api/logout', { method: 'POST', credentials: 'include' });
+                await fetch('/api/logout', { method: 'POST', credentials: 'include' });
                 window.location.href = 'index.html';
             } catch (error) {
                 console.error('Logout failed', error);
@@ -88,7 +88,7 @@ async function initStudyPlanner() {
 
     async function loadTasks() {
         try {
-            const response = await fetch('http://localhost:3000/api/tasks', { credentials: 'include' });
+            const response = await fetch('/api/tasks', { credentials: 'include' });
             const data = await response.json();
 
             if (data.success) {
@@ -107,7 +107,7 @@ async function initStudyPlanner() {
         addBtn.innerText = 'Adding...';
 
         try {
-            const response = await fetch('http://localhost:3000/api/tasks', {
+            const response = await fetch('/api/tasks', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ text }),
@@ -170,7 +170,7 @@ function updateProgress(percent) {
 // Global functions for task actions
 async function toggleTask(id) {
     try {
-        const response = await fetch(`http://localhost:3000/api/tasks/${id}`, {
+        const response = await fetch(`/api/tasks/${id}`, {
             method: 'PATCH',
             credentials: 'include'
         });
@@ -195,7 +195,7 @@ async function deleteTask(id) {
     if (!confirm('Are you sure you want to delete this task?')) return;
 
     try {
-        const response = await fetch(`http://localhost:3000/api/tasks/${id}`, {
+        const response = await fetch(`/api/tasks/${id}`, {
             method: 'DELETE',
             credentials: 'include'
         });

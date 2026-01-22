@@ -224,7 +224,7 @@ document.getElementById('login-form').addEventListener('submit', async (e) => {
     const password = document.getElementById('login-password').value;
 
     try {
-        const response = await fetch('http://localhost:3000/api/login', {
+        const response = await fetch('/api/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -289,7 +289,7 @@ document.getElementById('signup-form').addEventListener('submit', async (e) => {
 
 
     try {
-        const response = await fetch('http://localhost:3000/api/signup', {
+        const response = await fetch('/api/signup', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -583,7 +583,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // ==================== FETCH REAL STATISTICS ====================
 async function fetchStats() {
     try {
-        const response = await fetch('http://localhost:3000/api/stats');
+        const response = await fetch('/api/stats');
         const data = await response.json();
 
         if (data.success) {
