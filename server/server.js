@@ -12,6 +12,9 @@ const courses = require('./data/courses');
 
 const app = express();
 
+// Trust proxy for secure cookies on Render/Heroku
+app.set('trust proxy', 1);
+
 // Middleware
 app.use(cors());
 app.use(express.json());
