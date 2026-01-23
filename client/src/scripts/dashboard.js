@@ -67,24 +67,25 @@ function updateUserInfo(user) {
 
     // Add Moderator Link if applicable
     const sidebarNav = document.querySelector('.sidebar-nav');
-    if (sidebarNav && (user.role === 'Moderator' || user.role === 'Admin')) {
-        // Check if link already exists
-        if (!document.getElementById('moderator-panel-link')) {
+    if (sidebarNav) {
+        // Moderator Link
+        if ((user.role === 'Moderator' || user.role === 'Admin') && !document.getElementById('moderator-panel-link')) {
             const modLink = document.createElement('a');
             modLink.href = 'moderator.html';
             modLink.className = 'sidebar-link';
             modLink.id = 'moderator-panel-link';
-            modLink.innerHTML = `
-                <span class="link-icon">🛡️</span>
-                <span>Moderator Panel</span>
-            `;
-            // Insert after Study Planner (link 4) or just append
-            const studyPlannerLink = sidebarNav.querySelector('a[href="study-planner.html"]');
-            if (studyPlannerLink) {
-                studyPlannerLink.after(modLink);
-            } else {
-                sidebarNav.appendChild(modLink);
-            }
+            modLink.innerHTML = `<span class="link-icon">🛡️</span><span>Moderator Panel</span>`;
+            sidebarNav.appendChild(modLink);
+        }
+
+        // Admin Link
+        if (user.role === 'Admin' && !document.getElementById('admin-panel-link')) {
+            const adminLink = document.createElement('a');
+            adminLink.href = 'admin.html';
+            adminLink.className = 'sidebar-link';
+            adminLink.id = 'admin-panel-link';
+            adminLink.innerHTML = `<span class="link-icon">⚙️</span><span>Admin Panel</span>`;
+            sidebarNav.appendChild(adminLink);
         }
     }
 

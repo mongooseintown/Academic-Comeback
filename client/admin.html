@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Academic Comeback</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="src/styles/styles.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="container nav-container">
+            <button class="hamburger-btn" id="hamburger-btn">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/logo.png" alt="Academic Comeback" class="logo-image">
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar Menu -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    <div class="sidebar-menu" id="sidebar-menu">
+        <div class="sidebar-header">
+            <h3>Menu</h3>
+            <button class="sidebar-close" id="sidebar-close">&times;</button>
+        </div>
+        <div class="sidebar-user-info">
+            <div class="user-avatar" id="global-sidebar-avatar">🎓</div>
+            <div class="user-details">
+                <div class="user-name" id="sidebar-user-name">Admin</div>
+                <div class="user-id" id="sidebar-user-id">ID: C241079</div>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="sidebar-link">
+                <span class="link-icon">📊</span><span>Dashboard</span>
+            </a>
+            <a href="admin.html" class="sidebar-link active">
+                <span class="link-icon">⚙️</span><span>Admin Panel</span>
+            </a>
+            <a href="moderator.html" class="sidebar-link">
+                <span class="link-icon">🛡️</span><span>Moderator Panel</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <button class="sidebar-action-btn logout-btn" id="sidebar-logout-btn">
+                <span class="link-icon">🚪</span><span>Log Out</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <section class="section-padding" style="margin-top: 80px;">
+        <div class="container">
+            <div class="section-header-box">
+                <h1 class="section-title-premium">Admin <span class="gradient-text">Panel</span></h1>
+                <p class="text-muted">Manage roles and permissions for the platform.</p>
+            </div>
+
+            <div class="admin-grid"
+                style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 2rem; margin-top: 3rem;">
+                <!-- Role Management Form -->
+                <div class="form-container-premium">
+                    <h3 style="margin-bottom: 1.5rem; color: white;">Assign Moderator Role</h3>
+                    <p class="text-secondary" style="font-size: 0.9rem; margin-bottom: 1rem;">Enter the Student's
+                        University ID to grant them Moderator privileges.</p>
+                    <form id="promote-form">
+                        <div class="form-group-premium">
+                            <label>University ID</label>
+                            <input type="text" id="target-id" placeholder="e.g. C201088" required
+                                style="text-transform: uppercase;">
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Grant Moderator Role</button>
+                    </form>
+                </div>
+
+                <!-- Moderator List -->
+                <div class="moderator-list-container"
+                    style="background: rgba(255,255,255,0.02); padding: 2rem; border-radius: 24px; border: 1px solid rgba(255,255,255,0.05);">
+                    <h3 style="margin-bottom: 1.5rem; color: white;">Current Moderators</h3>
+                    <div id="moderator-list" style="display: flex; flex-direction: column; gap: 1rem;">
+                        <div class="loading-message">
+                            <div class="spinner"></div>
+                            <p>Loading moderator list...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Notification -->
+    <div id="notification-container"></div>
+
+    <script src="src/scripts/script.js"></script>
+    <script src="src/scripts/admin.js"></script>
+</body>
+
+</html>

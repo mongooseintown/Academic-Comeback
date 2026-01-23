@@ -697,6 +697,9 @@ app.delete('/api/user', async (req, res) => {
 });
 
 // Check Auth Status
+// Super Admin ID (Hardcoded)
+const SUPER_ADMIN = 'C241079';
+
 // Middleware to check for specific roles
 const checkRole = (roles) => {
     return (req, res, next) => {
@@ -706,10 +709,20 @@ const checkRole = (roles) => {
 
         // Find user to check role
         User.findById(req.session.userId).then(user => {
-            if (!user || !roles.includes(user.role)) {
-                return res.status(403).json({ success: false, message: 'Access denied: Unauthorized role' });
+            if (!user) return res.status(404).json({ success: false, message: 'User not found' });
+
+            // Auto-promote Super Admin
+            if (user.universityId === SUPER_ADMIN && user.role !== 'Admin') {
+                user.role = 'Admin';
+                user.save();
             }
-            next();
+
+            // Admin has access to all roles' permissions
+            if (user.role === 'Admin' || roles.includes(user.role)) {
+                return next();
+            }
+
+            return res.status(403).json({ success: false, message: 'Access denied: Unauthorized role' });
         }).catch(err => {
             console.error('Role check error:', err);
             res.status(500).json({ success: false, message: 'Server error during role validation' });
@@ -1173,25 +1186,60 @@ app.delete('/api/moderator/delete-resource', checkRole(['Moderator', 'Admin']), 
 });
 
 
-// Temporary Promotion Route (for initial setup)
-app.post('/api/moderator/promote', async (req, res) => {
-    try {
-        const { secretCode } = req.body;
-        if (secretCode !== 'MODERATOR_SECRET_2025') {
-            return res.status(403).json({ success: false, message: 'Invalid secret code' });
-        }
+// ==================== ADMIN APIs ====================
 
-        const user = await User.findById(req.session.userId);
-        if (!user) return res.status(404).json({ success: false, message: 'User not found' });
+// Promote Student to Moderator (Admin Only)
+app.post('/api/admin/promote', checkRole(['Admin']), async (req, res) => {
+    try {
+        const { universityId } = req.body;
+        if (!universityId) return res.status(400).json({ success: false, message: 'University ID required' });
+
+        const user = await User.findOne({ universityId: universityId.toUpperCase() });
+        if (!user) return res.status(404).json({ success: false, message: 'Student not found in database' });
 
         user.role = 'Moderator';
         await user.save();
 
-        res.json({ success: true, message: 'Success! You are now a Moderator. Please refresh the page.' });
+        res.json({ success: true, message: `${user.name} promoted to Moderator` });
     } catch (error) {
         res.status(500).json({ success: false, message: 'Server error' });
     }
 });
+
+// Demote Moderator to Student (Admin Only)
+app.post('/api/admin/demote', checkRole(['Admin']), async (req, res) => {
+    try {
+        const { universityId } = req.body;
+        if (!universityId) return res.status(400).json({ success: false, message: 'University ID required' });
+
+        const user = await User.findOne({ universityId: universityId.toUpperCase() });
+        if (!user) return res.status(404).json({ success: false, message: 'User not found' });
+
+        // Cannot demote Super Admin
+        if (user.universityId === SUPER_ADMIN) {
+            return res.status(400).json({ success: false, message: 'Cannot demote Super Admin' });
+        }
+
+        user.role = 'Student';
+        await user.save();
+
+        res.json({ success: true, message: `${user.name} demoted to Student` });
+    } catch (error) {
+        res.status(500).json({ success: false, message: 'Server error' });
+    }
+});
+
+// List all Moderators (Admin Only)
+app.get('/api/admin/moderators', checkRole(['Admin']), async (req, res) => {
+    try {
+        const moderators = await User.find({ role: 'Moderator' }).select('name universityId role');
+        res.json({ success: true, moderators });
+    } catch (error) {
+        res.status(500).json({ success: false, message: 'Server error' });
+    }
+});
+
+// Toggle academic segment completion
 
 // Toggle academic segment completion
 app.post('/api/academic-progress/toggle', async (req, res) => {

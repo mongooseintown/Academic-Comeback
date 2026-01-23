@@ -2625,6 +2625,13 @@ section {
     transform: translateX(5px);
 }
 
+.btn-demote:hover {
+    background: #ef4444 !important;
+    color: white !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
+}
+
 /* ==================== PREMIUM MODAL ==================== */
 .custom-modal-overlay {
     position: fixed;
