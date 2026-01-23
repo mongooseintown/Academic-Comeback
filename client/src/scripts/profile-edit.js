@@ -279,7 +279,13 @@ async function uploadProfilePicture(file) {
         body: formData
     });
 
-    const data = await response.json();
+    let data;
+    try {
+        data = await response.json();
+    } catch (e) {
+        console.error('Server returned non-JSON response:', e);
+        throw new Error('Server error: Likely missing Cloudinary configuration on Render. Please check your Render Environment Variables.');
+    }
 
     if (!data.success) {
         throw new Error(data.message || 'Picture upload failed');
