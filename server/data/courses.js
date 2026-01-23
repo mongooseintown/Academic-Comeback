@@ -367,6 +367,24 @@ const courses = {
                         link: 'https://mega.nz/file/axQjGQSA#rhopHvOhb5s-qp0jmE2w3JUhpBkGuIjdezbEFxolUas',
                         type: 'pdfs',
                         segment: 1
+                    },
+                    {
+                        name: 'Accounting Complete Playlist - Segment 1',
+                        link: 'https://www.youtube.com/playlist?list=PLtEqNlKa_p2p33Y_jilk0MdtjRnEy8QBr',
+                        type: 'playlists',
+                        segment: 1
+                    },
+                    {
+                        name: 'Accounting Complete Playlist - Segment 2',
+                        link: 'https://www.youtube.com/playlist?list=PLtEqNlKa_p2p33Y_jilk0MdtjRnEy8QBr',
+                        type: 'playlists',
+                        segment: 2
+                    },
+                    {
+                        name: 'Accounting Complete Playlist - Segment 3',
+                        link: 'https://www.youtube.com/playlist?list=PLtEqNlKa_p2p33Y_jilk0MdtjRnEy8QBr',
+                        type: 'playlists',
+                        segment: 3
                     }
                 ]
             },
