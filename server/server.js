@@ -394,7 +394,8 @@ app.post('/api/signup', async (req, res) => {
                 id: user._id,
                 name: user.name,
                 universityId: user.universityId,
-                email: user.email
+                email: user.email,
+                semester: user.semester
             }
         });
 
@@ -470,7 +471,8 @@ app.post('/api/login', async (req, res) => {
                 email: user.email,
                 profilePicture: user.profilePicture,
                 completedCredits: user.completedCredits,
-                role: user.role
+                role: user.role,
+                semester: user.semester
             }
         });
 
@@ -929,8 +931,10 @@ app.get('/api/user-courses', async (req, res) => {
                 email: user.email,
                 profilePicture: user.profilePicture,
                 role: user.role,
+                semester: user.semester,
                 academicProgress: user.academicProgress
-            }
+            },
+            semester: user.semester
         });
 
     } catch (error) {

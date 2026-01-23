@@ -23,28 +23,33 @@ document.addEventListener('DOMContentLoaded', async () => {
     // 2. Load current moderators
     async function loadModeratorList() {
         const listContainer = document.getElementById('moderator-list');
+        if (!listContainer) return;
+
         try {
+            console.log('Fetching moderator list...');
             const response = await fetch(`/api/admin/moderators?t=${Date.now()}`, { credentials: 'include' });
             const data = await response.json();
+
+            console.log('Moderators list loaded:', data.moderators ? data.moderators.length : 0, data.moderators);
 
             if (data.success && data.moderators) {
                 if (data.moderators.length === 0) {
                     listContainer.innerHTML = '<p class="text-muted">No moderators assigned yet.</p>';
                 } else {
                     listContainer.innerHTML = data.moderators.map(mod => `
-                        <div class="moderator-card" style="display: flex; justify-content: space-between; align-items: center; padding: 1.25rem; background: rgba(255,255,255,0.03); border-radius: 16px; border: 1px solid rgba(255,255,255,0.05);">
-                            <div>
-                                <h4 style="margin: 0; color: white;">${mod.name}</h4>
-                                <p style="margin: 0; font-size: 0.85rem; color: var(--text-muted);">${mod.universityId}</p>
+                        <div class="moderator-card">
+                            <div class="moderator-info">
+                                <h4 class="moderator-name">${mod.name}</h4>
+                                <p class="moderator-id">${mod.universityId}</p>
                             </div>
-                            <button class="btn-demote" onclick="demoteUser('${mod.universityId}')" style="padding: 0.5rem 1rem; background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); color: #ef4444; border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">Revoke</button>
+                            <button class="btn-revoke" onclick="demoteUser('${mod.universityId}')">Revoke Access</button>
                         </div>
                     `).join('');
                 }
             }
         } catch (error) {
             console.error('Error loading moderators:', error);
-            listContainer.innerHTML = '<p class="text-muted">Error loading list.</p>';
+            listContainer.innerHTML = '<p class="text-muted">Error loading list. Check console.</p>';
         }
     }
 
@@ -56,7 +61,13 @@ document.addEventListener('DOMContentLoaded', async () => {
             const targetIdInput = document.getElementById('target-id');
             const universityId = targetIdInput.value.toUpperCase();
 
+            const submitBtn = promoteForm.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.textContent;
+
             try {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<span class="spinner-small"></span> Processing...';
+
                 const response = await fetch('/api/admin/promote', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -65,23 +76,29 @@ document.addEventListener('DOMContentLoaded', async () => {
                 });
 
                 const data = await response.json();
+                console.log('Promotion API response:', data);
 
                 if (data.success) {
-                    // Feedback to user
-                    showNotification(`🚀 Success: ${data.message}`, 'success');
-
-                    // Clear form
+                    if (window.showNotification) {
+                        window.showNotification(data.message || 'Moderator added successfully!', 'success');
+                    } else {
+                        alert(data.message || 'Success!');
+                    }
                     promoteForm.reset();
-
-                    // Instant UI update - either fetch again or push to existing if we had a local array
-                    // For now, re-fetching is safest to get the correct Name from server
-                    await loadModeratorList();
+                    setTimeout(() => loadModeratorList(), 1000); // Increased delay
                 } else {
-                    showNotification(`❌ Error: ${data.message}`, 'error');
+                    if (window.showNotification) {
+                        window.showNotification(data.message || 'Error occurred', 'error');
+                    }
                 }
             } catch (error) {
                 console.error('Promotion failed:', error);
-                showNotification('❌ Promotion failed. Please try again.', 'error');
+                if (window.showNotification) {
+                    window.showNotification('Promotion failed. Network or Server error.', 'error');
+                }
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalBtnText;
             }
         });
     }
@@ -99,15 +116,24 @@ document.addEventListener('DOMContentLoaded', async () => {
             });
 
             const data = await response.json();
+            console.log('Demotion API response:', data);
             if (data.success) {
-                showNotification(`🗑️ ${universityId} demoted to Student`, 'info');
-                await loadModeratorList(); // Ensure wait for refresh
+                if (window.showNotification) {
+                    window.showNotification(data.message || 'Moderator access revoked', 'success');
+                } else {
+                    alert(data.message || 'Revoked!');
+                }
+                setTimeout(() => loadModeratorList(), 1000); // Increased delay
             } else {
-                showNotification(`❌ Error: ${data.message}`, 'error');
+                if (window.showNotification) {
+                    window.showNotification(data.message || 'Demotion failed', 'error');
+                }
             }
         } catch (error) {
             console.error('Demote error:', error);
-            showNotification('❌ Revoke failed. Please try again.', 'error');
+            if (window.showNotification) {
+                window.showNotification('Revoke failed. Network or Server error.', 'error');
+            }
         }
     };
 

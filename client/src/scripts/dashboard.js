@@ -106,8 +106,12 @@ function updateUserInfo(user) {
     if (modalId) modalId.textContent = `ID: ${user.universityId}`;
     if (modalEmail) modalEmail.textContent = user.email;
     if (modalSemester) {
-        const suffix = (user.semester === 1) ? 'st' : (user.semester === 2) ? 'nd' : (user.semester === 3) ? 'rd' : 'th';
-        modalSemester.textContent = `${user.semester}${suffix} Semester`;
+        if (user.semester) {
+            const suffix = (user.semester === 1) ? 'st' : (user.semester === 2) ? 'nd' : (user.semester === 3) ? 'rd' : 'th';
+            modalSemester.textContent = `${user.semester}${suffix} Semester`;
+        } else {
+            modalSemester.textContent = 'Semester Not Set';
+        }
     }
 
     // Load available courses if on my-courses page
@@ -323,8 +327,12 @@ async function loadMyCourses() {
 
             // Update semester badge
             if (semesterBadge) {
-                const suffix = (semester === 1) ? 'st' : (semester === 2) ? 'nd' : (semester === 3) ? 'rd' : 'th';
-                semesterBadge.textContent = `Semester ${semester}${suffix}`;
+                if (semester) {
+                    const suffix = (semester === 1) ? 'st' : (semester === 2) ? 'nd' : (semester === 3) ? 'rd' : 'th';
+                    semesterBadge.textContent = `Semester ${semester}${suffix}`;
+                } else {
+                    semesterBadge.textContent = 'My Courses';
+                }
                 semesterBadge.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
                 semesterBadge.style.color = '#fff';
                 semesterBadge.style.padding = '0.5rem 1rem';

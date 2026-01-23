@@ -1,8 +1,44 @@
+// ==================== GLOBAL NOTIFICATION SYSTEM ====================
+window.showNotification = function (message, type = 'info') {
+    console.log(`Notification [${type}]: ${message}`);
+    // Remove existing notifications to avoid stacking issues
+    const existingNotifications = document.querySelectorAll('.global-notification');
+    existingNotifications.forEach(n => n.remove());
+
+    const notification = document.createElement('div');
+    notification.className = `global-notification notification-${type}`;
+
+    let icon = 'ℹ️';
+    if (type === 'success') icon = '✅';
+    if (type === 'error') icon = '❌';
+    if (type === 'warning') icon = '⚠️';
+
+    notification.innerHTML = `
+        <div class="notification-content">
+            <span class="notification-icon">${icon}</span>
+            <span class="notification-message">${message}</span>
+        </div>
+        <div class="notification-progress"></div>
+    `;
+
+    document.body.appendChild(notification);
+
+    // Trigger animation
+    setTimeout(() => notification.classList.add('active'), 10);
+
+    // Auto-remove
+    setTimeout(() => {
+        notification.classList.remove('active');
+        setTimeout(() => notification.remove(), 500);
+    }, 4000);
+};
+
 // ==================== NAVBAR SCROLL EFFECT ====================
 const navbar = document.getElementById('navbar');
 let lastScroll = 0;
 
 window.addEventListener('scroll', () => {
+    if (!navbar) return;
     const currentScroll = window.pageYOffset;
 
     if (currentScroll > 50) {
@@ -104,7 +140,9 @@ function updateActiveLink() {
     });
 }
 
-window.addEventListener('scroll', updateActiveLink);
+if (sections.length > 0 && navLinks.length > 0) {
+    window.addEventListener('scroll', updateActiveLink);
+}
 
 // ==================== MOBILE MENU TOGGLE ====================
 // Logic moved to mobile-menu.js to avoid duplication and conflicts
@@ -206,119 +244,137 @@ function closeModal(modalId) {
 
 // Enforce University ID Format (Uppercasing)
 const universityIdInputs = document.querySelectorAll('#login-id, #signup-id');
-universityIdInputs.forEach(input => {
-    input.addEventListener('input', function () {
-        this.value = this.value.toUpperCase();
-        if (this.value.length > 0 && !this.value.startsWith('C')) {
-            this.setCustomValidity("University ID must start with 'C'");
-        } else {
-            this.setCustomValidity("");
-        }
+if (universityIdInputs.length > 0) {
+    universityIdInputs.forEach(input => {
+        input.addEventListener('input', function () {
+            this.value = this.value.toUpperCase();
+            if (this.value.length > 0 && !this.value.startsWith('C')) {
+                this.setCustomValidity("University ID must start with 'C'");
+            } else {
+                this.setCustomValidity("");
+            }
+        });
     });
-});
+}
 
 // Form submissions
-document.getElementById('login-form').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const universityId = document.getElementById('login-id').value;
-    const password = document.getElementById('login-password').value;
+const loginForm = document.getElementById('login-form');
+if (loginForm) {
+    loginForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const idInput = document.getElementById('login-id');
+        const passInput = document.getElementById('login-password');
+        if (!idInput || !passInput) return;
 
-    try {
-        const response = await fetch('/api/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            credentials: 'include',
-            body: JSON.stringify({ universityId, password })
-        });
+        const universityId = idInput.value;
+        const password = passInput.value;
 
-        const data = await response.json();
+        try {
+            const response = await fetch('/api/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                credentials: 'include',
+                body: JSON.stringify({ universityId, password })
+            });
 
-        if (data.success) {
-            // Store token in localStorage
-            localStorage.setItem('authToken', data.token);
-            localStorage.setItem('showWelcomeMessage', data.user.name); // Flag for dashboard
+            const data = await response.json();
 
-            // Redirect immediately (notification will be shown on dashboard)
-            setTimeout(() => {
-                closeModal('login-modal');
-                window.location.href = '/dashboard.html';
-            }, 0);
-        } else {
-            showNotification(`❌ ${data.message}`);
+            if (data.success) {
+                // Store token in localStorage
+                localStorage.setItem('authToken', data.token);
+                localStorage.setItem('showWelcomeMessage', data.user.name); // Flag for dashboard
+
+                // Redirect immediately (notification will be shown on dashboard)
+                setTimeout(() => {
+                    closeModal('login-modal');
+                    window.location.href = '/dashboard.html';
+                }, 0);
+            } else {
+                showNotification(`❌ ${data.message}`);
+            }
+
+        } catch (error) {
+            console.error('Login error:', error);
+            showNotification('❌ Server error. Please make sure the server is running.');
+        }
+    });
+}
+
+const signupForm = document.getElementById('signup-form');
+if (signupForm) {
+    signupForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const fName = document.getElementById('signup-name');
+        const fId = document.getElementById('signup-id');
+        const fSem = document.getElementById('signup-semester');
+        const fEmail = document.getElementById('signup-email');
+        const fPass = document.getElementById('signup-password');
+        const fConf = document.getElementById('signup-confirm');
+
+        if (!fName || !fId || !fSem || !fEmail || !fPass || !fConf) return;
+
+        const name = fName.value;
+        const universityId = fId.value;
+        const semester = fSem.value;
+        const email = fEmail.value;
+        const password = fPass.value;
+        const confirm = fConf.value;
+
+        // Client-side validation
+        if (password !== confirm) {
+            showNotification('❌ Passwords do not match!');
+            return;
         }
 
-    } catch (error) {
-        console.error('Login error:', error);
-        showNotification('❌ Server error. Please make sure the server is running.');
-    }
-});
-
-document.getElementById('signup-form').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const name = document.getElementById('signup-name').value;
-    const universityId = document.getElementById('signup-id').value;
-    const semester = document.getElementById('signup-semester').value;
-
-    const email = document.getElementById('signup-email').value;
-    const password = document.getElementById('signup-password').value;
-    const confirm = document.getElementById('signup-confirm').value;
-
-    // Client-side validation
-    if (password !== confirm) {
-        showNotification('❌ Passwords do not match!');
-        return;
-    }
-
-    if (password.length < 6) {
-        showNotification('❌ Password must be at least 6 characters long!');
-        return;
-    }
-
-    if (!universityId.startsWith('C')) {
-        showNotification("❌ University ID must start with 'C'");
-        return;
-    }
-
-    if (!semester) {
-        showNotification('❌ Please select your current semester!');
-        return;
-    }
-
-
-
-    try {
-        const response = await fetch('/api/signup', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            credentials: 'include',
-            body: JSON.stringify({ name, email, password, universityId, semester })
-        });
-
-        const data = await response.json();
-
-        if (data.success) {
-            // Store token in localStorage
-            localStorage.setItem('authToken', data.token);
-            localStorage.setItem('showWelcomeMessage', data.user.name); // Flag for dashboard
-
-            // Redirect immediately
-            setTimeout(() => {
-                closeModal('signup-modal');
-                window.location.href = '/dashboard.html';
-            }, 0);
-        } else {
-            showNotification(`❌ ${data.message}`);
+        if (password.length < 6) {
+            showNotification('❌ Password must be at least 6 characters long!');
+            return;
         }
 
-    } catch (error) {
-        console.error('Signup error:', error);
-        showNotification('❌ Server error. Please make sure the server is running.');
-    }
-});
+        if (!universityId.startsWith('C')) {
+            showNotification("❌ University ID must start with 'C'");
+            return;
+        }
+
+        if (!semester) {
+            showNotification('❌ Please select your current semester!');
+            return;
+        }
+
+        try {
+            const response = await fetch('/api/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                credentials: 'include',
+                body: JSON.stringify({ name, email, password, universityId, semester })
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                // Store token in localStorage
+                localStorage.setItem('authToken', data.token);
+                localStorage.setItem('showWelcomeMessage', data.user.name); // Flag for dashboard
+
+                // Redirect immediately
+                setTimeout(() => {
+                    closeModal('signup-modal');
+                    window.location.href = '/dashboard.html';
+                }, 0);
+            } else {
+                showNotification(`❌ ${data.message}`);
+            }
+
+        } catch (error) {
+            console.error('Signup error:', error);
+            showNotification('❌ Server error. Please make sure the server is running.');
+        }
+    });
+}
 
 // Close modals with Escape key
 document.addEventListener('keydown', (e) => {
@@ -330,55 +386,26 @@ document.addEventListener('keydown', (e) => {
 
 // ==================== WATCH DEMO BUTTON ====================
 const watchDemoButton = document.getElementById('watch-demo');
-
-watchDemoButton.addEventListener('click', () => {
-    showNotification('🎬 Demo video coming soon!');
-});
-
-// ==================== GLOBAL NOTIFICATION SYSTEM ====================
-window.showNotification = function (message, type = 'info') {
-    // Remove existing notifications to avoid stacking issues
-    const existingNotifications = document.querySelectorAll('.global-notification');
-    existingNotifications.forEach(n => n.remove());
-
-    const notification = document.createElement('div');
-    notification.className = `global-notification notification-${type}`;
-
-    let icon = 'ℹ️';
-    if (type === 'success') icon = '✅';
-    if (type === 'error') icon = '❌';
-    if (type === 'warning') icon = '⚠️';
-
-    notification.innerHTML = `
-        <div class="notification-content">
-            <span class="notification-icon">${icon}</span>
-            <span class="notification-message">${message}</span>
-        </div>
-        <div class="notification-progress"></div>
-    `;
-
-    document.body.appendChild(notification);
-
-    // Trigger animation
-    setTimeout(() => notification.classList.add('active'), 10);
-
-    // Auto-remove
-    setTimeout(() => {
-        notification.classList.remove('active');
-        setTimeout(() => notification.remove(), 500);
-    }, 4000);
-};
+if (watchDemoButton) {
+    watchDemoButton.addEventListener('click', () => {
+        showNotification('🎬 Demo video coming soon!');
+    });
+}
 
 // ==================== PRICING CARD INTERACTIONS ====================
 const pricingCards = document.querySelectorAll('.pricing-card');
 
 pricingCards.forEach(card => {
     const button = card.querySelector('.btn');
-
-    button.addEventListener('click', () => {
-        const planName = card.querySelector('.pricing-title').textContent;
-        showNotification(`🚀 Selected ${planName} plan! Redirecting to checkout...`);
-    });
+    if (button) {
+        button.addEventListener('click', () => {
+            const titleEl = card.querySelector('.pricing-title');
+            if (titleEl) {
+                const planName = titleEl.textContent;
+                showNotification(`🚀 Selected ${planName} plan! Redirecting to checkout...`);
+            }
+        });
+    }
 });
 
 // ==================== COURSE CARD INTERACTIONS ====================
@@ -386,8 +413,11 @@ const courseCards = document.querySelectorAll('.course-card');
 
 courseCards.forEach(card => {
     card.addEventListener('click', () => {
-        const courseName = card.querySelector('.course-title').textContent;
-        showNotification(`📚 Opening ${courseName} course details...`);
+        const titleEl = card.querySelector('.course-title');
+        if (titleEl) {
+            const courseName = titleEl.textContent;
+            showNotification(`📚 Opening ${courseName} course details...`);
+        }
     });
 });
 
@@ -508,13 +538,19 @@ window.addEventListener('load', () => {
 
 // ==================== COMMUNITY BUTTONS ====================
 const communityButtons = document.querySelectorAll('.community-card .btn');
-
-communityButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const cardTitle = button.closest('.community-card').querySelector('.community-title').textContent;
-        showNotification(`🚀 Opening ${cardTitle}...`);
+if (communityButtons.length > 0) {
+    communityButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const card = button.closest('.community-card');
+            if (card) {
+                const titleEl = card.querySelector('.community-title');
+                if (titleEl) {
+                    showNotification(`🚀 Opening ${titleEl.textContent}...`);
+                }
+            }
+        });
     });
-});
+}
 
 // ==================== CAP MOVEMENT LOGIC ====================
 document.addEventListener('DOMContentLoaded', () => {
@@ -788,13 +824,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const navSearchBtn = document.getElementById('nav-search-btn');
         const cmdPalette = document.getElementById('cmd-palette');
 
-        console.log('Search button found:', navSearchBtn);
-        console.log('Command palette found:', cmdPalette);
-
         if (navSearchBtn && cmdPalette) {
             navSearchBtn.addEventListener('click', (e) => {
                 e.preventDefault();
-                console.log('Search button clicked!');
                 cmdPalette.classList.add('active');
                 const cmdInput = document.getElementById('cmd-input');
                 if (cmdInput) {
@@ -802,9 +834,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     cmdInput.focus();
                 }
             });
-            console.log('Search button listener attached successfully');
-        } else {
-            console.error('Search button or palette not found!');
         }
     }, 100);
 });
