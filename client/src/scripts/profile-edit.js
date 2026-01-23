@@ -81,8 +81,6 @@ function populateForm(user) {
     if (user.department) document.getElementById('department').value = user.department;
     if (user.batch) document.getElementById('batch').value = user.batch;
     if (user.studentType) document.getElementById('studentType').value = user.studentType;
-    if (user.currentCGPA) document.getElementById('currentCGPA').value = user.currentCGPA;
-    if (user.targetCGPA) document.getElementById('targetCGPA').value = user.targetCGPA;
     if (user.completedCredits) document.getElementById('completedCredits').value = user.completedCredits;
     if (user.expectedGraduation) document.getElementById('expectedGraduation').value = user.expectedGraduation.split('T')[0].substring(0, 7);
 
@@ -436,7 +434,30 @@ function updateSidebarPreview(user) {
     // Update global avatar icon to image
     const globalAvatar = document.getElementById('global-sidebar-avatar');
     if (globalAvatar && user.profilePicture) {
-        globalAvatar.innerHTML = `<img src="${user.profilePicture}" alt="Avatar">`;
+        globalAvatar.innerHTML = `<img src="${user.profilePicture}" alt="Avatar" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;" onerror="this.parentElement.innerHTML='🎓'">`;
+    }
+
+    // --- Sidebar Sync Logic (Admin/Moderator Links) ---
+    const sidebarNav = document.querySelector('.sidebar-nav');
+    if (sidebarNav) {
+        // Moderator Link
+        if ((user.role === 'Moderator' || user.role === 'Admin') && !document.getElementById('moderator-panel-link')) {
+            const modLink = document.createElement('a');
+            modLink.href = 'moderator.html';
+            modLink.className = 'sidebar-link';
+            modLink.id = 'moderator-panel-link';
+            modLink.innerHTML = `<span class="link-icon">🛡️</span><span>Moderator Panel</span>`;
+            sidebarNav.appendChild(modLink);
+        }
+        // Admin Link
+        if (user.role === 'Admin' && !document.getElementById('admin-panel-link')) {
+            const adminLink = document.createElement('a');
+            adminLink.href = 'admin.html';
+            adminLink.className = 'sidebar-link';
+            adminLink.id = 'admin-panel-link';
+            adminLink.innerHTML = `<span class="link-icon">⚙️</span><span>Admin Panel</span>`;
+            sidebarNav.appendChild(adminLink);
+        }
     }
 }
 

@@ -65,24 +65,23 @@ function updateUserInfo(user) {
         }
     }
 
-    // Add Moderator Link if applicable
+    // --- Sidebar Sync Logic (Admin/Moderator Links) ---
     const sidebarNav = document.querySelector('.sidebar-nav');
     if (sidebarNav) {
         // Moderator Link
         if ((user.role === 'Moderator' || user.role === 'Admin') && !document.getElementById('moderator-panel-link')) {
             const modLink = document.createElement('a');
             modLink.href = 'moderator.html';
-            modLink.className = 'sidebar-link';
+            modLink.className = 'sidebar-link' + (window.location.pathname.includes('moderator.html') ? ' active' : '');
             modLink.id = 'moderator-panel-link';
             modLink.innerHTML = `<span class="link-icon">🛡️</span><span>Moderator Panel</span>`;
             sidebarNav.appendChild(modLink);
         }
-
         // Admin Link
         if (user.role === 'Admin' && !document.getElementById('admin-panel-link')) {
             const adminLink = document.createElement('a');
             adminLink.href = 'admin.html';
-            adminLink.className = 'sidebar-link';
+            adminLink.className = 'sidebar-link' + (window.location.pathname.includes('admin.html') ? ' active' : '');
             adminLink.id = 'admin-panel-link';
             adminLink.innerHTML = `<span class="link-icon">⚙️</span><span>Admin Panel</span>`;
             sidebarNav.appendChild(adminLink);
@@ -90,9 +89,7 @@ function updateUserInfo(user) {
     }
 
     // Update Dashboard Stats if on dashboard page
-    const cgpaValue = document.querySelector('.stat-card:nth-child(1) .stat-value');
-    const creditsValue = document.querySelector('.stat-card:nth-child(2) .stat-value');
-    if (cgpaValue && user.currentCGPA !== undefined) cgpaValue.textContent = user.currentCGPA.toFixed(2);
+    const creditsValue = document.querySelector('.stat-card .stat-value');
     if (creditsValue && user.completedCredits !== undefined) creditsValue.textContent = user.completedCredits;
 
     // Update Profile Modal (if it exists)

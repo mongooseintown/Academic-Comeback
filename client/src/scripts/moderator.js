@@ -197,6 +197,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const toggleMenu = () => {
             sidebarMenu.classList.toggle('active');
             sidebarOverlay.classList.toggle('active');
+            hamburgerBtn.classList.toggle('active');
         };
 
         hamburgerBtn.addEventListener('click', toggleMenu);

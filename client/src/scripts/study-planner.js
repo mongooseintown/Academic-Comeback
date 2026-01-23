@@ -31,7 +31,30 @@ function updateUserInfo(user) {
     if (userIdElement) userIdElement.textContent = `ID: ${user.universityId}`;
 
     if (globalAvatar && user.profilePicture) {
-        globalAvatar.innerHTML = `<img src="${user.profilePicture}" alt="Avatar" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">`;
+        globalAvatar.innerHTML = `<img src="${user.profilePicture}" alt="Avatar" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;" onerror="this.parentElement.innerHTML='🎓'">`;
+    }
+
+    // --- Sidebar Sync Logic (Admin/Moderator Links) ---
+    const sidebarNav = document.querySelector('.sidebar-nav');
+    if (sidebarNav) {
+        // Moderator Link
+        if ((user.role === 'Moderator' || user.role === 'Admin') && !document.getElementById('moderator-panel-link')) {
+            const modLink = document.createElement('a');
+            modLink.href = 'moderator.html';
+            modLink.className = 'sidebar-link';
+            modLink.id = 'moderator-panel-link';
+            modLink.innerHTML = `<span class="link-icon">🛡️</span><span>Moderator Panel</span>`;
+            sidebarNav.appendChild(modLink);
+        }
+        // Admin Link
+        if (user.role === 'Admin' && !document.getElementById('admin-panel-link')) {
+            const adminLink = document.createElement('a');
+            adminLink.href = 'admin.html';
+            adminLink.className = 'sidebar-link';
+            adminLink.id = 'admin-panel-link';
+            adminLink.innerHTML = `<span class="link-icon">⚙️</span><span>Admin Panel</span>`;
+            sidebarNav.appendChild(adminLink);
+        }
     }
 }
 

@@ -151,18 +151,6 @@ const userSchema = new mongoose.Schema({
         enum: ['Regular', 'Irregular'],
         default: 'Regular'
     },
-    currentCGPA: {
-        type: Number,
-        default: 0.00,
-        min: 0,
-        max: 4.00
-    },
-    targetCGPA: {
-        type: Number,
-        default: 0.00,
-        min: 0,
-        max: 4.00
-    },
     completedCredits: { type: Number, default: 0 },
     expectedGraduation: { type: Date },
     extraCourses: [{ type: String }], // Array of course codes for extra enrolled courses
@@ -309,7 +297,7 @@ userSchema.methods.calculateProfileCompletion = function () {
         this.bloodGroup,
         this.department,
         this.batch,
-        this.currentCGPA !== undefined && this.currentCGPA > 0,
+        this.email !== '',
         this.completedCredits !== undefined && this.completedCredits > 0,
         this.programmingLanguages && this.programmingLanguages.length > 0,
         this.areasOfInterest && this.areasOfInterest.length > 0,
@@ -481,7 +469,6 @@ app.post('/api/login', async (req, res) => {
                 universityId: user.universityId,
                 email: user.email,
                 profilePicture: user.profilePicture,
-                currentCGPA: user.currentCGPA,
                 completedCredits: user.completedCredits,
                 role: user.role
             }
@@ -554,7 +541,7 @@ app.put('/api/profile', async (req, res) => {
         const {
             phone, dateOfBirth, bloodGroup, gender,
             department, batch, studentType,
-            currentCGPA, targetCGPA, completedCredits, expectedGraduation,
+            completedCredits, expectedGraduation,
             presentAddress, permanentAddress, city, country,
             guardianName, guardianPhone, guardianRelationship,
             programmingLanguages, areasOfInterest,
@@ -577,8 +564,6 @@ app.put('/api/profile', async (req, res) => {
         if (department !== undefined) user.department = department;
         if (batch !== undefined) user.batch = batch;
         if (studentType !== undefined) user.studentType = studentType;
-        if (currentCGPA !== undefined) user.currentCGPA = currentCGPA;
-        if (targetCGPA !== undefined) user.targetCGPA = targetCGPA;
         if (completedCredits !== undefined) user.completedCredits = completedCredits;
         if (expectedGraduation !== undefined) user.expectedGraduation = expectedGraduation;
         if (presentAddress !== undefined) user.presentAddress = presentAddress;
