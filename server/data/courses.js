@@ -385,7 +385,15 @@ const courses = {
                         link: 'https://www.youtube.com/playlist?list=PLtEqNlKa_p2p33Y_jilk0MdtjRnEy8QBr',
                         type: 'playlists',
                         segment: 3
-                    }
+                    },
+                    // Notes for Segment 2
+                    { name: 'Playlist dekhlei hobe, alada kore notes er proyojon nei.', link: '#', type: 'slides', segment: 2 },
+                    { name: 'Playlist dekhlei hobe, alada kore notes er proyojon nei.', link: '#', type: 'pdfs', segment: 2 },
+                    { name: 'Playlist dekhlei hobe, alada kore notes er proyojon nei.', link: '#', type: 'notes', segment: 2 },
+                    // Notes for Segment 3
+                    { name: 'Playlist dekhlei hobe, alada kore notes er proyojon nei.', link: '#', type: 'slides', segment: 3 },
+                    { name: 'Playlist dekhlei hobe, alada kore notes er proyojon nei.', link: '#', type: 'pdfs', segment: 3 },
+                    { name: 'Playlist dekhlei hobe, alada kore notes er proyojon nei.', link: '#', type: 'notes', segment: 3 }
                 ]
             },
             final: { syllabus: 'Financial Statements', resources: [] }
