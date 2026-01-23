@@ -4747,7 +4747,7 @@ section {
 
 /* Course Progress Bar in Hero */
 .course-progress-container {
-    margin-top: 1.5rem;
+    margin: 1.5rem auto 0;
     max-width: 400px;
 }
 
@@ -5647,4 +5647,24 @@ section {
     100% {
         transform: rotate(360deg);
     }
+}
+
+/* Global Hero Centering Fix */
+.dashboard-hero-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.dashboard-hero-content .hero-title,
+.dashboard-hero-content .hero-description,
+.dashboard-hero-content .premium-back-btn {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.dashboard-hero-content .hero-description {
+    max-width: 600px;
 }
