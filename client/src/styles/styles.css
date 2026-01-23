@@ -4749,6 +4749,9 @@ section {
 .course-progress-container {
     margin: 1.5rem auto 0;
     max-width: 400px;
+    width: 100%;
+    min-width: 280px;
+    /* Prevent it from getting too small on mobile */
 }
 
 .course-progress-label {
