@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     async function loadModeratorList() {
         const listContainer = document.getElementById('moderator-list');
         try {
-            const response = await fetch('/api/admin/moderators', { credentials: 'include' });
+            const response = await fetch(`/api/admin/moderators?t=${Date.now()}`, { credentials: 'include' });
             const data = await response.json();
 
             if (data.success && data.moderators) {
@@ -50,30 +50,41 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // 3. Promote User Form
     const promoteForm = document.getElementById('promote-form');
-    promoteForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const universityId = document.getElementById('target-id').value.toUpperCase();
+    if (promoteForm) {
+        promoteForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const targetIdInput = document.getElementById('target-id');
+            const universityId = targetIdInput.value.toUpperCase();
 
-        try {
-            const response = await fetch('/api/admin/promote', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                credentials: 'include',
-                body: JSON.stringify({ universityId })
-            });
+            try {
+                const response = await fetch('/api/admin/promote', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    credentials: 'include',
+                    body: JSON.stringify({ universityId })
+                });
 
-            const data = await response.json();
-            if (data.success) {
-                showNotification(`✅ ${data.message}`, 'success');
-                promoteForm.reset();
-                loadModeratorList();
-            } else {
-                showNotification(`❌ ${data.message}`, 'error');
+                const data = await response.json();
+
+                if (data.success) {
+                    // Feedback to user
+                    showNotification(`🚀 Success: ${data.message}`, 'success');
+
+                    // Clear form
+                    promoteForm.reset();
+
+                    // Instant UI update - either fetch again or push to existing if we had a local array
+                    // For now, re-fetching is safest to get the correct Name from server
+                    await loadModeratorList();
+                } else {
+                    showNotification(`❌ Error: ${data.message}`, 'error');
+                }
+            } catch (error) {
+                console.error('Promotion failed:', error);
+                showNotification('❌ Promotion failed. Please try again.', 'error');
             }
-        } catch (error) {
-            showNotification('❌ Promotion failed', 'error');
-        }
-    });
+        });
+    }
 
     // 4. Demote User Function (Global for onclick)
     window.demoteUser = async (universityId) => {
@@ -89,13 +100,14 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             const data = await response.json();
             if (data.success) {
-                showNotification('🗑️ Moderator role revoked', 'info');
-                loadModeratorList();
+                showNotification(`🗑️ ${universityId} demoted to Student`, 'info');
+                await loadModeratorList(); // Ensure wait for refresh
             } else {
-                showNotification(`❌ ${data.message}`, 'error');
+                showNotification(`❌ Error: ${data.message}`, 'error');
             }
         } catch (error) {
             console.error('Demote error:', error);
+            showNotification('❌ Revoke failed. Please try again.', 'error');
         }
     };
 
