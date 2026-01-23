@@ -200,7 +200,16 @@ const courses = {
             code: 'CSE-2421',
             title: 'Computer Algorithms',
             credits: 3,
-            mid: { syllabus: 'Divide & Conquer, Greedy', resources: [] },
+            mid: {
+                syllabus: 'Divide & Conquer, Greedy',
+                resources: [
+                    {
+                        name: 'Previous Year Question - Mid Term',
+                        link: 'https://mega.nz/file/Ks4l0bKY#KmXQ5-hk0kdgiDFfcm6aOHnWU9Lpq-r_NOroabhCq50',
+                        type: 'prev_question'
+                    }
+                ]
+            },
             final: {
                 syllabus: 'DP, Graph Algo, NP',
                 resources: [],
