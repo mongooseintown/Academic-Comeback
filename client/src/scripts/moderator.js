@@ -163,4 +163,33 @@ document.addEventListener('DOMContentLoaded', async () => {
             globalAvatar.innerHTML = `<img src="${user.profilePicture}" alt="Avatar" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;" onerror="this.parentElement.innerHTML='🎓'">`;
         }
     }
+
+    // ==================== SIDEBAR & UI NAVIGATION ====================
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const sidebarMenu = document.getElementById('sidebar-menu');
+    const sidebarOverlay = document.getElementById('sidebar-overlay');
+    const sidebarClose = document.getElementById('sidebar-close');
+
+    if (hamburgerBtn && sidebarMenu && sidebarOverlay) {
+        const toggleMenu = () => {
+            sidebarMenu.classList.toggle('active');
+            sidebarOverlay.classList.toggle('active');
+        };
+
+        hamburgerBtn.addEventListener('click', toggleMenu);
+        if (sidebarClose) sidebarClose.addEventListener('click', toggleMenu);
+        sidebarOverlay.addEventListener('click', toggleMenu);
+    }
+
+    const logoutBtn = document.getElementById('sidebar-logout-btn');
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', async () => {
+            try {
+                await fetch('/api/logout', { method: 'POST', credentials: 'include' });
+                window.location.href = 'index.html';
+            } catch (error) {
+                console.error('Logout failed', error);
+            }
+        });
+    }
 });
