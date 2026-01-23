@@ -203,18 +203,18 @@ const courses = {
             mid: {
                 syllabus: 'Divide & Conquer, Greedy',
                 resources: [
-                    { name: '01. Segment-01 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 1 },
-                    { name: '01. Segment-01 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 1 },
-                    { name: '01. Segment-01 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 1 },
-                    { name: '01. Segment-01 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 1 },
-                    { name: '02. Segment-02 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 2 },
-                    { name: '02. Segment-02 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 2 },
-                    { name: '02. Segment-02 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 2 },
-                    { name: '02. Segment-02 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 2 },
-                    { name: '03. Segment-03 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 3 },
-                    { name: '03. Segment-03 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 3 },
-                    { name: '03. Segment-03 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 3 },
-                    { name: '03. Segment-03 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 3 }
+                    { name: 'Segment-01 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 1 },
+                    { name: 'Segment-01 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 1 },
+                    { name: 'Segment-01 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 1 },
+                    { name: 'Segment-01 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 1 },
+                    { name: 'Segment-02 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 2 },
+                    { name: 'Segment-02 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 2 },
+                    { name: 'Segment-02 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 2 },
+                    { name: 'Segment-02 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 2 },
+                    { name: 'Segment-03 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 3 },
+                    { name: 'Segment-03 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 3 },
+                    { name: 'Segment-03 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 3 },
+                    { name: 'Segment-03 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 3 }
                 ]
             },
             final: { syllabus: 'DP, Graph Algo, NP', resources: [] }
@@ -226,18 +226,18 @@ const courses = {
             mid: {
                 syllabus: 'Sorting, Greedy Impl',
                 resources: [
-                    { name: '01. Segment-01 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 1 },
-                    { name: '01. Segment-01 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 1 },
-                    { name: '01. Segment-01 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 1 },
-                    { name: '01. Segment-01 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 1 },
-                    { name: '02. Segment-02 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 2 },
-                    { name: '02. Segment-02 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 2 },
-                    { name: '02. Segment-02 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 2 },
-                    { name: '02. Segment-02 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 2 },
-                    { name: '03. Segment-03 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 3 },
-                    { name: '03. Segment-03 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 3 },
-                    { name: '03. Segment-03 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 3 },
-                    { name: '03. Segment-03 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 3 }
+                    { name: 'Segment-01 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 1 },
+                    { name: 'Segment-01 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 1 },
+                    { name: 'Segment-01 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 1 },
+                    { name: 'Segment-01 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 1 },
+                    { name: 'Segment-02 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 2 },
+                    { name: 'Segment-02 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 2 },
+                    { name: 'Segment-02 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 2 },
+                    { name: 'Segment-02 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 2 },
+                    { name: 'Segment-03 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 3 },
+                    { name: 'Segment-03 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 3 },
+                    { name: 'Segment-03 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 3 },
+                    { name: 'Segment-03 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 3 }
                 ]
             },
             final: { syllabus: 'DP, Graph Impl', resources: [] }
@@ -249,18 +249,18 @@ const courses = {
             mid: {
                 syllabus: 'ER Models, Relational Model',
                 resources: [
-                    { name: '01. Segment-01 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 1 },
-                    { name: '01. Segment-01 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 1 },
-                    { name: '01. Segment-01 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 1 },
-                    { name: '01. Segment-01 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 1 },
-                    { name: '02. Segment-02 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 2 },
-                    { name: '02. Segment-02 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 2 },
-                    { name: '02. Segment-02 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 2 },
-                    { name: '02. Segment-02 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 2 },
-                    { name: '03. Segment-03 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 3 },
-                    { name: '03. Segment-03 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 3 },
-                    { name: '03. Segment-03 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 3 },
-                    { name: '03. Segment-03 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 3 }
+                    { name: 'Segment-01 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 1 },
+                    { name: 'Segment-01 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 1 },
+                    { name: 'Segment-01 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 1 },
+                    { name: 'Segment-01 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 1 },
+                    { name: 'Segment-02 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 2 },
+                    { name: 'Segment-02 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 2 },
+                    { name: 'Segment-02 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 2 },
+                    { name: 'Segment-02 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 2 },
+                    { name: 'Segment-03 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 3 },
+                    { name: 'Segment-03 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 3 },
+                    { name: 'Segment-03 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 3 },
+                    { name: 'Segment-03 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 3 }
                 ]
             },
             final: { syllabus: 'SQL, Normalization, Trans.', resources: [] }
@@ -272,18 +272,18 @@ const courses = {
             mid: {
                 syllabus: 'Schema Design',
                 resources: [
-                    { name: '01. Segment-01 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 1 },
-                    { name: '01. Segment-01 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 1 },
-                    { name: '01. Segment-01 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 1 },
-                    { name: '01. Segment-01 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 1 },
-                    { name: '02. Segment-02 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 2 },
-                    { name: '02. Segment-02 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 2 },
-                    { name: '02. Segment-02 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 2 },
-                    { name: '02. Segment-02 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 2 },
-                    { name: '03. Segment-03 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 3 },
-                    { name: '03. Segment-03 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 3 },
-                    { name: '03. Segment-03 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 3 },
-                    { name: '03. Segment-03 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 3 }
+                    { name: 'Segment-01 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 1 },
+                    { name: 'Segment-01 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 1 },
+                    { name: 'Segment-01 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 1 },
+                    { name: 'Segment-01 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 1 },
+                    { name: 'Segment-02 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 2 },
+                    { name: 'Segment-02 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 2 },
+                    { name: 'Segment-02 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 2 },
+                    { name: 'Segment-02 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 2 },
+                    { name: 'Segment-03 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 3 },
+                    { name: 'Segment-03 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 3 },
+                    { name: 'Segment-03 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 3 },
+                    { name: 'Segment-03 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 3 }
                 ]
             },
             final: { syllabus: 'Advanced SQL, PL/SQL', resources: [] }
@@ -295,18 +295,18 @@ const courses = {
             mid: {
                 syllabus: 'Automata, Regular Lang',
                 resources: [
-                    { name: '01. Segment-01 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 1 },
-                    { name: '01. Segment-01 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 1 },
-                    { name: '01. Segment-01 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 1 },
-                    { name: '01. Segment-01 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 1 },
-                    { name: '02. Segment-02 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 2 },
-                    { name: '02. Segment-02 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 2 },
-                    { name: '02. Segment-02 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 2 },
-                    { name: '02. Segment-02 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 2 },
-                    { name: '03. Segment-03 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 3 },
-                    { name: '03. Segment-03 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 3 },
-                    { name: '03. Segment-03 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 3 },
-                    { name: '03. Segment-03 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 3 }
+                    { name: 'Segment-01 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 1 },
+                    { name: 'Segment-01 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 1 },
+                    { name: 'Segment-01 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 1 },
+                    { name: 'Segment-01 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 1 },
+                    { name: 'Segment-02 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 2 },
+                    { name: 'Segment-02 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 2 },
+                    { name: 'Segment-02 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 2 },
+                    { name: 'Segment-02 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 2 },
+                    { name: 'Segment-03 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 3 },
+                    { name: 'Segment-03 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 3 },
+                    { name: 'Segment-03 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 3 },
+                    { name: 'Segment-03 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 3 }
                 ]
             },
             final: { syllabus: 'Context-Free, Turing Machines', resources: [] }
@@ -318,18 +318,18 @@ const courses = {
             mid: {
                 syllabus: 'Complex Var 1',
                 resources: [
-                    { name: '01. Segment-01 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 1 },
-                    { name: '01. Segment-01 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 1 },
-                    { name: '01. Segment-01 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 1 },
-                    { name: '01. Segment-01 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 1 },
-                    { name: '02. Segment-02 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 2 },
-                    { name: '02. Segment-02 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 2 },
-                    { name: '02. Segment-02 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 2 },
-                    { name: '02. Segment-02 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 2 },
-                    { name: '03. Segment-03 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 3 },
-                    { name: '03. Segment-03 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 3 },
-                    { name: '03. Segment-03 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 3 },
-                    { name: '03. Segment-03 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 3 }
+                    { name: 'Segment-01 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 1 },
+                    { name: 'Segment-01 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 1 },
+                    { name: 'Segment-01 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 1 },
+                    { name: 'Segment-01 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 1 },
+                    { name: 'Segment-02 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 2 },
+                    { name: 'Segment-02 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 2 },
+                    { name: 'Segment-02 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 2 },
+                    { name: 'Segment-02 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 2 },
+                    { name: 'Segment-03 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 3 },
+                    { name: 'Segment-03 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 3 },
+                    { name: 'Segment-03 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 3 },
+                    { name: 'Segment-03 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 3 }
                 ]
             },
             final: { syllabus: 'Complex Var 2, Fourier', resources: [] }
@@ -341,18 +341,18 @@ const courses = {
             mid: {
                 syllabus: 'Projections',
                 resources: [
-                    { name: '01. Segment-01 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 1 },
-                    { name: '01. Segment-01 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 1 },
-                    { name: '01. Segment-01 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 1 },
-                    { name: '01. Segment-01 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 1 },
-                    { name: '02. Segment-02 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 2 },
-                    { name: '02. Segment-02 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 2 },
-                    { name: '02. Segment-02 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 2 },
-                    { name: '02. Segment-02 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 2 },
-                    { name: '03. Segment-03 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 3 },
-                    { name: '03. Segment-03 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 3 },
-                    { name: '03. Segment-03 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 3 },
-                    { name: '03. Segment-03 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 3 }
+                    { name: 'Segment-01 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 1 },
+                    { name: 'Segment-01 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 1 },
+                    { name: 'Segment-01 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 1 },
+                    { name: 'Segment-01 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 1 },
+                    { name: 'Segment-02 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 2 },
+                    { name: 'Segment-02 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 2 },
+                    { name: 'Segment-02 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 2 },
+                    { name: 'Segment-02 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 2 },
+                    { name: 'Segment-03 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 3 },
+                    { name: 'Segment-03 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 3 },
+                    { name: 'Segment-03 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 3 },
+                    { name: 'Segment-03 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 3 }
                 ]
             },
             final: { syllabus: 'CAD Basics', resources: [] }
@@ -364,18 +364,18 @@ const courses = {
             mid: {
                 syllabus: 'Adv Data Structures',
                 resources: [
-                    { name: '01. Segment-01 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 1 },
-                    { name: '01. Segment-01 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 1 },
-                    { name: '01. Segment-01 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 1 },
-                    { name: '01. Segment-01 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 1 },
-                    { name: '02. Segment-02 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 2 },
-                    { name: '02. Segment-02 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 2 },
-                    { name: '02. Segment-02 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 2 },
-                    { name: '02. Segment-02 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 2 },
-                    { name: '03. Segment-03 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 3 },
-                    { name: '03. Segment-03 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 3 },
-                    { name: '03. Segment-03 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 3 },
-                    { name: '03. Segment-03 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 3 }
+                    { name: 'Segment-01 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 1 },
+                    { name: 'Segment-01 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 1 },
+                    { name: 'Segment-01 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 1 },
+                    { name: 'Segment-01 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 1 },
+                    { name: 'Segment-02 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 2 },
+                    { name: 'Segment-02 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 2 },
+                    { name: 'Segment-02 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 2 },
+                    { name: 'Segment-02 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 2 },
+                    { name: 'Segment-03 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 3 },
+                    { name: 'Segment-03 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 3 },
+                    { name: 'Segment-03 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 3 },
+                    { name: 'Segment-03 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 3 }
                 ]
             },
             final: { syllabus: 'Adv Algorithms', resources: [] }
@@ -387,18 +387,18 @@ const courses = {
             mid: {
                 syllabus: 'Accounting Basics',
                 resources: [
-                    { name: '01. Segment-01 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 1 },
-                    { name: '01. Segment-01 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 1 },
-                    { name: '01. Segment-01 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 1 },
-                    { name: '01. Segment-01 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 1 },
-                    { name: '02. Segment-02 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 2 },
-                    { name: '02. Segment-02 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 2 },
-                    { name: '02. Segment-02 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 2 },
-                    { name: '02. Segment-02 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 2 },
-                    { name: '03. Segment-03 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 3 },
-                    { name: '03. Segment-03 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 3 },
-                    { name: '03. Segment-03 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 3 },
-                    { name: '03. Segment-03 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 3 }
+                    { name: 'Segment-01 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 1 },
+                    { name: 'Segment-01 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 1 },
+                    { name: 'Segment-01 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 1 },
+                    { name: 'Segment-01 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 1 },
+                    { name: 'Segment-02 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 2 },
+                    { name: 'Segment-02 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 2 },
+                    { name: 'Segment-02 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 2 },
+                    { name: 'Segment-02 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 2 },
+                    { name: 'Segment-03 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 3 },
+                    { name: 'Segment-03 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 3 },
+                    { name: 'Segment-03 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 3 },
+                    { name: 'Segment-03 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 3 }
                 ]
             },
             final: { syllabus: 'Financial Statements', resources: [] }
@@ -410,18 +410,18 @@ const courses = {
             mid: {
                 syllabus: 'Grammar',
                 resources: [
-                    { name: '01. Segment-01 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 1 },
-                    { name: '01. Segment-01 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 1 },
-                    { name: '01. Segment-01 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 1 },
-                    { name: '01. Segment-01 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 1 },
-                    { name: '02. Segment-02 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 2 },
-                    { name: '02. Segment-02 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 2 },
-                    { name: '02. Segment-02 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 2 },
-                    { name: '02. Segment-02 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 2 },
-                    { name: '03. Segment-03 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 3 },
-                    { name: '03. Segment-03 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 3 },
-                    { name: '03. Segment-03 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 3 },
-                    { name: '03. Segment-03 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 3 }
+                    { name: 'Segment-01 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 1 },
+                    { name: 'Segment-01 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 1 },
+                    { name: 'Segment-01 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 1 },
+                    { name: 'Segment-01 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 1 },
+                    { name: 'Segment-02 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 2 },
+                    { name: 'Segment-02 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 2 },
+                    { name: 'Segment-02 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 2 },
+                    { name: 'Segment-02 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 2 },
+                    { name: 'Segment-03 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 3 },
+                    { name: 'Segment-03 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 3 },
+                    { name: 'Segment-03 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 3 },
+                    { name: 'Segment-03 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 3 }
                 ]
             },
             final: { syllabus: 'Literature', resources: [] }
