@@ -203,160 +203,181 @@ const courses = {
             mid: {
                 syllabus: 'Divide & Conquer, Greedy',
                 resources: [
-                    {
-                        name: 'Previous Year Question - Mid Term',
-                        link: 'https://mega.nz/file/Ks4l0bKY#KmXQ5-hk0kdgiDFfcm6aOHnWU9Lpq-r_NOroabhCq50',
-                        type: 'prev_question'
-                    }
+                    { name: '01. Segment-01 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 1 },
+                    { name: '01. Segment-01 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 1 },
+                    { name: '01. Segment-01 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 1 },
+                    { name: '01. Segment-01 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 1 },
+                    { name: '02. Segment-02 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 2 },
+                    { name: '02. Segment-02 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 2 },
+                    { name: '02. Segment-02 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 2 },
+                    { name: '02. Segment-02 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 2 },
+                    { name: '03. Segment-03 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 3 },
+                    { name: '03. Segment-03 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 3 },
+                    { name: '03. Segment-03 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 3 },
+                    { name: '03. Segment-03 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 3 }
                 ]
             },
-            final: {
-                syllabus: 'DP, Graph Algo, NP',
-                resources: [],
-                roadmap: [
-                    {
-                        title: "Segment-04 | Greedy Algorithms and String Matching Algorithms",
-                        topics: [
-                            {
-                                name: "Greedy Algorithms",
-                                subtopics: ["Activity Selection Problem", "Elements of Greedy Strategy", "Huffman Codes and Its Application"]
-                            },
-                            {
-                                name: "String Matching Algorithms",
-                                subtopics: ["Naive String-Matching Algorithm", "Rabin-Karp Algorithm", "Complexity Analysis of the Algorithms"]
-                            }
-                        ]
-                    },
-                    {
-                        title: "Segment-05 | Graphs Basic & Traversal Techniques",
-                        topics: [
-                            {
-                                name: "Representation of Graphs",
-                                subtopics: []
-                            },
-                            {
-                                name: "Breadth First Search",
-                                subtopics: ["Algorithm of BFS", "Application of BFS"]
-                            },
-                            {
-                                name: "Depth First Search",
-                                subtopics: ["Algorithm of DFS", "Application of DFS"]
-                            },
-                            {
-                                name: "Minimum Spanning Tree",
-                                subtopics: ["Kruskal's Algorithm", "Prim's Algorithm"]
-                            },
-                            {
-                                name: "Complexity Analysis of the Algorithms",
-                                subtopics: []
-                            }
-                        ]
-                    },
-                    {
-                        title: "Segment-06 | Shortest Path Algorithms",
-                        topics: [
-                            {
-                                name: "Single-source Shortest Path",
-                                subtopics: ["Dijkstra's Algorithm", "Bellman-Ford's Algorithm"]
-                            },
-                            {
-                                name: "All-pairs Shortest Path",
-                                subtopics: ["Floyd-Warshall's Algorithm"]
-                            },
-                            {
-                                name: "Complexity Analysis of the Algorithms",
-                                subtopics: []
-                            }
-                        ]
-                    },
-                    {
-                        title: "Segment-07 | Computational Geometry & Number Theory",
-                        topics: [
-                            {
-                                name: "Computational Geometry",
-                                subtopics: ["Line Segment Properties", "Convex Hull", "Graham Scan Algorithm of Convex Hull"]
-                            },
-                            {
-                                name: "Number Theory",
-                                subtopics: ["GCD", "Modular Arithmetic", "Prime Number Generation"]
-                            },
-                            {
-                                name: "Complexity Analysis of the Algorithms",
-                                subtopics: []
-                            }
-                        ]
-                    },
-                    {
-                        title: "Segment-08 | Theory of NP-Completeness & Coping with Hardness",
-                        topics: [
-                            {
-                                name: "Theory of NP-Completeness",
-                                subtopics: ["P", "NP", "NP-Complete Problems", "NP-Hard Problems"]
-                            },
-                            {
-                                name: "Backtracking",
-                                subtopics: ["N-Queen Problem"]
-                            },
-                            {
-                                name: "Branch and Bound",
-                                subtopics: []
-                            },
-                            {
-                                name: "Approximation Algorithms",
-                                subtopics: []
-                            }
-                        ]
-                    }
-                ]
-            }
+            final: { syllabus: 'DP, Graph Algo, NP', resources: [] }
         },
         {
             code: 'CSE-2422',
             title: 'Computer Algorithms Lab',
             credits: 1,
-            mid: { syllabus: 'Sorting, Greedy Impl', resources: [] },
+            mid: {
+                syllabus: 'Sorting, Greedy Impl',
+                resources: [
+                    { name: '01. Segment-01 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 1 },
+                    { name: '01. Segment-01 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 1 },
+                    { name: '01. Segment-01 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 1 },
+                    { name: '01. Segment-01 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 1 },
+                    { name: '02. Segment-02 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 2 },
+                    { name: '02. Segment-02 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 2 },
+                    { name: '02. Segment-02 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 2 },
+                    { name: '02. Segment-02 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 2 },
+                    { name: '03. Segment-03 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 3 },
+                    { name: '03. Segment-03 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 3 },
+                    { name: '03. Segment-03 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 3 },
+                    { name: '03. Segment-03 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 3 }
+                ]
+            },
             final: { syllabus: 'DP, Graph Impl', resources: [] }
         },
         {
             code: 'CSE-2423',
             title: 'Database Management Systems',
             credits: 3,
-            mid: { syllabus: 'ER Models, Relational Model', resources: [] },
+            mid: {
+                syllabus: 'ER Models, Relational Model',
+                resources: [
+                    { name: '01. Segment-01 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 1 },
+                    { name: '01. Segment-01 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 1 },
+                    { name: '01. Segment-01 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 1 },
+                    { name: '01. Segment-01 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 1 },
+                    { name: '02. Segment-02 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 2 },
+                    { name: '02. Segment-02 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 2 },
+                    { name: '02. Segment-02 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 2 },
+                    { name: '02. Segment-02 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 2 },
+                    { name: '03. Segment-03 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 3 },
+                    { name: '03. Segment-03 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 3 },
+                    { name: '03. Segment-03 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 3 },
+                    { name: '03. Segment-03 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 3 }
+                ]
+            },
             final: { syllabus: 'SQL, Normalization, Trans.', resources: [] }
         },
         {
             code: 'CSE-2424',
             title: 'DBMS Lab',
             credits: 1.5,
-            mid: { syllabus: 'Schema Design', resources: [] },
+            mid: {
+                syllabus: 'Schema Design',
+                resources: [
+                    { name: '01. Segment-01 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 1 },
+                    { name: '01. Segment-01 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 1 },
+                    { name: '01. Segment-01 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 1 },
+                    { name: '01. Segment-01 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 1 },
+                    { name: '02. Segment-02 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 2 },
+                    { name: '02. Segment-02 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 2 },
+                    { name: '02. Segment-02 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 2 },
+                    { name: '02. Segment-02 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 2 },
+                    { name: '03. Segment-03 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 3 },
+                    { name: '03. Segment-03 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 3 },
+                    { name: '03. Segment-03 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 3 },
+                    { name: '03. Segment-03 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 3 }
+                ]
+            },
             final: { syllabus: 'Advanced SQL, PL/SQL', resources: [] }
         },
         {
             code: 'CSE-2427',
             title: 'Theory of Computation',
             credits: 3,
-            mid: { syllabus: 'Automata, Regular Lang', resources: [] },
+            mid: {
+                syllabus: 'Automata, Regular Lang',
+                resources: [
+                    { name: '01. Segment-01 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 1 },
+                    { name: '01. Segment-01 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 1 },
+                    { name: '01. Segment-01 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 1 },
+                    { name: '01. Segment-01 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 1 },
+                    { name: '02. Segment-02 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 2 },
+                    { name: '02. Segment-02 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 2 },
+                    { name: '02. Segment-02 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 2 },
+                    { name: '02. Segment-02 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 2 },
+                    { name: '03. Segment-03 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 3 },
+                    { name: '03. Segment-03 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 3 },
+                    { name: '03. Segment-03 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 3 },
+                    { name: '03. Segment-03 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 3 }
+                ]
+            },
             final: { syllabus: 'Context-Free, Turing Machines', resources: [] }
         },
         {
             code: 'MATH-2407',
             title: 'Mathematics IV',
             credits: 3,
-            mid: { syllabus: 'Complex Var 1', resources: [] },
+            mid: {
+                syllabus: 'Complex Var 1',
+                resources: [
+                    { name: '01. Segment-01 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 1 },
+                    { name: '01. Segment-01 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 1 },
+                    { name: '01. Segment-01 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 1 },
+                    { name: '01. Segment-01 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 1 },
+                    { name: '02. Segment-02 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 2 },
+                    { name: '02. Segment-02 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 2 },
+                    { name: '02. Segment-02 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 2 },
+                    { name: '02. Segment-02 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 2 },
+                    { name: '03. Segment-03 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 3 },
+                    { name: '03. Segment-03 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 3 },
+                    { name: '03. Segment-03 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 3 },
+                    { name: '03. Segment-03 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 3 }
+                ]
+            },
             final: { syllabus: 'Complex Var 2, Fourier', resources: [] }
         },
         {
             code: 'ME-2412',
             title: 'Engineering Drawing Lab',
             credits: 1,
-            mid: { syllabus: 'Projections', resources: [] },
+            mid: {
+                syllabus: 'Projections',
+                resources: [
+                    { name: '01. Segment-01 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 1 },
+                    { name: '01. Segment-01 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 1 },
+                    { name: '01. Segment-01 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 1 },
+                    { name: '01. Segment-01 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 1 },
+                    { name: '02. Segment-02 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 2 },
+                    { name: '02. Segment-02 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 2 },
+                    { name: '02. Segment-02 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 2 },
+                    { name: '02. Segment-02 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 2 },
+                    { name: '03. Segment-03 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 3 },
+                    { name: '03. Segment-03 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 3 },
+                    { name: '03. Segment-03 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 3 },
+                    { name: '03. Segment-03 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 3 }
+                ]
+            },
             final: { syllabus: 'CAD Basics', resources: [] }
         },
         {
             code: 'CSE-2430',
             title: 'Competitive Programming 2',
             credits: 1,
-            mid: { syllabus: 'Adv Data Structures', resources: [] },
+            mid: {
+                syllabus: 'Adv Data Structures',
+                resources: [
+                    { name: '01. Segment-01 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 1 },
+                    { name: '01. Segment-01 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 1 },
+                    { name: '01. Segment-01 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 1 },
+                    { name: '01. Segment-01 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 1 },
+                    { name: '02. Segment-02 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 2 },
+                    { name: '02. Segment-02 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 2 },
+                    { name: '02. Segment-02 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 2 },
+                    { name: '02. Segment-02 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 2 },
+                    { name: '03. Segment-03 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 3 },
+                    { name: '03. Segment-03 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 3 },
+                    { name: '03. Segment-03 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 3 },
+                    { name: '03. Segment-03 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 3 }
+                ]
+            },
             final: { syllabus: 'Adv Algorithms', resources: [] }
         },
         {
@@ -366,43 +387,18 @@ const courses = {
             mid: {
                 syllabus: 'Accounting Basics',
                 resources: [
-                    {
-                        name: 'Previous Year Question - Mid Term',
-                        link: 'https://mega.nz/file/moRFHJSK#dNNUkqbY7ranqtmUiynokGMmCTDW0sn2fpmEKFfc0Sg',
-                        type: 'prev_question'
-                    },
-                    {
-                        name: 'Accounting Mid Term PDF',
-                        link: 'https://mega.nz/file/axQjGQSA#rhopHvOhb5s-qp0jmE2w3JUhpBkGuIjdezbEFxolUas',
-                        type: 'pdfs',
-                        segment: 1
-                    },
-                    {
-                        name: 'Accounting Complete Playlist - Segment 1',
-                        link: 'https://www.youtube.com/playlist?list=PLtEqNlKa_p2p33Y_jilk0MdtjRnEy8QBr',
-                        type: 'playlists',
-                        segment: 1
-                    },
-                    {
-                        name: 'Accounting Complete Playlist - Segment 2',
-                        link: 'https://www.youtube.com/playlist?list=PLtEqNlKa_p2p33Y_jilk0MdtjRnEy8QBr',
-                        type: 'playlists',
-                        segment: 2
-                    },
-                    {
-                        name: 'Accounting Complete Playlist - Segment 3',
-                        link: 'https://www.youtube.com/playlist?list=PLtEqNlKa_p2p33Y_jilk0MdtjRnEy8QBr',
-                        type: 'playlists',
-                        segment: 3
-                    },
-                    // Notes for Segment 2
-                    { name: 'Playlist dekhlei hobe, alada kore notes er proyojon nei.', link: '#', type: 'slides', segment: 2 },
-                    { name: 'Playlist dekhlei hobe, alada kore notes er proyojon nei.', link: '#', type: 'pdfs', segment: 2 },
-                    { name: 'Playlist dekhlei hobe, alada kore notes er proyojon nei.', link: '#', type: 'notes', segment: 2 },
-                    // Notes for Segment 3
-                    { name: 'Playlist dekhlei hobe, alada kore notes er proyojon nei.', link: '#', type: 'slides', segment: 3 },
-                    { name: 'Playlist dekhlei hobe, alada kore notes er proyojon nei.', link: '#', type: 'pdfs', segment: 3 },
-                    { name: 'Playlist dekhlei hobe, alada kore notes er proyojon nei.', link: '#', type: 'notes', segment: 3 }
+                    { name: '01. Segment-01 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 1 },
+                    { name: '01. Segment-01 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 1 },
+                    { name: '01. Segment-01 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 1 },
+                    { name: '01. Segment-01 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 1 },
+                    { name: '02. Segment-02 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 2 },
+                    { name: '02. Segment-02 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 2 },
+                    { name: '02. Segment-02 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 2 },
+                    { name: '02. Segment-02 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 2 },
+                    { name: '03. Segment-03 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 3 },
+                    { name: '03. Segment-03 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 3 },
+                    { name: '03. Segment-03 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 3 },
+                    { name: '03. Segment-03 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 3 }
                 ]
             },
             final: { syllabus: 'Financial Statements', resources: [] }
@@ -411,7 +407,23 @@ const courses = {
             code: 'GEBL-2401',
             title: 'Functional Bengali Language',
             credits: 2,
-            mid: { syllabus: 'Grammar', resources: [] },
+            mid: {
+                syllabus: 'Grammar',
+                resources: [
+                    { name: '01. Segment-01 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 1 },
+                    { name: '01. Segment-01 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 1 },
+                    { name: '01. Segment-01 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 1 },
+                    { name: '01. Segment-01 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 1 },
+                    { name: '02. Segment-02 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 2 },
+                    { name: '02. Segment-02 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 2 },
+                    { name: '02. Segment-02 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 2 },
+                    { name: '02. Segment-02 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 2 },
+                    { name: '03. Segment-03 Hand Note', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'notes', segment: 3 },
+                    { name: '03. Segment-03 PDF', link: 'https://mega.nz/file/jgZl1KSL#KijBsPSbp9c85LiTdENuavFuusIdKEHH2cLqzqMF9RQ', type: 'pdfs', segment: 3 },
+                    { name: '03. Segment-03 Slide', link: 'https://mega.nz/file/agoVFRhJ#V9R6xAZ7XzrcYQ8hVDErdDCmAgRNnuSaENbCJtactds', type: 'slides', segment: 3 },
+                    { name: '03. Segment-03 Prev Q', link: 'https://mega.nz/file/2oBynDCL#Gf9jiJu3jJIeLDZbwo7Pb34AWg3wsJ6DnsQ2av--sdY', type: 'prev_question', segment: 3 }
+                ]
+            },
             final: { syllabus: 'Literature', resources: [] }
         }
     ],
