@@ -1648,7 +1648,7 @@ section {
 /* ==================== NOTIFICATIONS ==================== */
 .global-notification {
     position: fixed;
-    top: 30px;
+    top: 110px;
     right: 30px;
     z-index: 999999;
     /* Higher z-index to be above everything */
