@@ -80,7 +80,16 @@ async function loadAcademicProgress() {
 
         if (data.success && data.courses && data.courses.length > 0) {
             container.innerHTML = data.courses.map((course, index) => {
-                const progress = 0; // Hardcoded to 0 as per baseline
+                // Calculate real progress based on segments
+                const segmentsCount = 3; // Basic assumption for now
+                const userProgress = data.user.academicProgress || [];
+                const completedSegments = userProgress.filter(p => p.courseCode === course.code).length;
+
+                // Max segments for mid+final is usually 6 (3 mid, 3 final)
+                // Let's assume 3 segments per term for simplicity in calculation
+                const totalPossibleSegments = 6;
+                const progress = Math.min(Math.round((completedSegments / totalPossibleSegments) * 100), 100);
+
                 const delay = index * 0.1;
 
                 return `
@@ -101,7 +110,7 @@ async function loadAcademicProgress() {
                     </div>
                     <div class="course-footer-analytics">
                         <span>Credits: ${course.credits}</span>
-                        <a href="course-details.html?code=${course.code}" class="view-details-link">Details →</a>
+                        <a href="course-details.html?code=${course.code}&term=mid" class="view-details-link">Details →</a>
                     </div>
                 </div>
             `}).join('');

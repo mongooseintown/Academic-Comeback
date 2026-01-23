@@ -58,7 +58,7 @@ function updateUserInfo(user) {
     const globalAvatar = document.getElementById('global-sidebar-avatar');
     if (globalAvatar) {
         if (user.profilePicture) {
-            globalAvatar.innerHTML = `<img src="${user.profilePicture}" alt="Avatar" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">`;
+            globalAvatar.innerHTML = `<img src="${user.profilePicture}" alt="Avatar" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;" onerror="this.parentElement.innerHTML='🎓'">`;
         } else {
             // Default icon if no picture
             globalAvatar.innerHTML = `🎓`;
