@@ -361,6 +361,12 @@ const courses = {
                         name: 'Previous Year Question - Mid Term',
                         link: 'https://mega.nz/file/moRFHJSK#dNNUkqbY7ranqtmUiynokGMmCTDW0sn2fpmEKFfc0Sg',
                         type: 'prev_question'
+                    },
+                    {
+                        name: 'Accounting Mid Term PDF',
+                        link: 'https://mega.nz/file/axQjGQSA#rhopHvOhb5s-qp0jmE2w3JUhpBkGuIjdezbEFxolUas',
+                        type: 'pdfs',
+                        segment: 1
                     }
                 ]
             },
