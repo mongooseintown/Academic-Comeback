@@ -308,16 +308,24 @@
                     if (badge) badge.remove();
                 }
 
-                // Add toggle button if not exists
-                if (!card.querySelector('.segment-toggle-btn')) {
-                    const toggleBtn = document.createElement('button');
+                // Add or update toggle button
+                let toggleBtn = card.querySelector('.btn-segment-toggle');
+                if (!toggleBtn) {
+                    toggleBtn = document.createElement('button');
                     toggleBtn.className = 'btn-segment-toggle';
-                    toggleBtn.innerHTML = 'Mark Done';
                     toggleBtn.onclick = (e) => toggleSegment(e, segmentId);
                     card.appendChild(toggleBtn);
+                }
+
+                toggleBtn.innerHTML = isCompleted ? 'Completed' : 'Mark Done';
+                if (isCompleted) {
+                    toggleBtn.classList.add('completed-btn');
+                    toggleBtn.onmouseenter = () => toggleBtn.innerHTML = 'Unmark';
+                    toggleBtn.onmouseleave = () => toggleBtn.innerHTML = 'Completed';
                 } else {
-                    const toggleBtn = card.querySelector('.btn-segment-toggle');
-                    toggleBtn.innerHTML = isCompleted ? 'Completed' : 'Mark Done';
+                    toggleBtn.classList.remove('completed-btn');
+                    toggleBtn.onmouseenter = null;
+                    toggleBtn.onmouseleave = null;
                 }
             });
 

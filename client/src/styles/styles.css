@@ -4729,9 +4729,20 @@ section {
     transform: translateY(-2px);
 }
 
-.segment-card.completed .btn-segment-toggle {
+.btn-segment-toggle.completed-btn {
     background: #10b981;
     border-color: transparent;
+    font-weight: 600;
+}
+
+.btn-segment-toggle.completed-btn:hover {
+    background: #ef4444;
+    /* Red on hover to indicate "Unmark" */
+    content: "Unmark";
+}
+
+.btn-segment-toggle.completed-btn:hover::after {
+    display: none;
 }
 
 /* Course Progress Bar in Hero */
