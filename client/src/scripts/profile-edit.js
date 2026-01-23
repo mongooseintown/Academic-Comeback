@@ -82,6 +82,7 @@ function populateForm(user) {
     if (user.batch) document.getElementById('batch').value = user.batch;
     if (user.studentType) document.getElementById('studentType').value = user.studentType;
     if (user.completedCredits) document.getElementById('completedCredits').value = user.completedCredits;
+    if (user.semester) document.getElementById('semester').value = user.semester;
     if (user.expectedGraduation) document.getElementById('expectedGraduation').value = user.expectedGraduation.split('T')[0].substring(0, 7);
 
     // Skills & Interests
@@ -324,6 +325,7 @@ async function saveProfile() {
             department: document.getElementById('department')?.value || '',
             batch: document.getElementById('batch')?.value || '',
             studentType: document.getElementById('studentType')?.value || '',
+            semester: parseInt(document.getElementById('semester')?.value) || 1,
             currentCGPA: parseFloat(document.getElementById('currentCGPA')?.value) || 0,
             targetCGPA: parseFloat(document.getElementById('targetCGPA')?.value) || 0,
             completedCredits: parseInt(document.getElementById('completedCredits')?.value) || 0,

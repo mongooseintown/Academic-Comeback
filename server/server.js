@@ -538,7 +538,7 @@ app.put('/api/profile', async (req, res) => {
 
         const {
             phone, dateOfBirth, bloodGroup, gender,
-            department, batch, studentType,
+            department, batch, studentType, semester,
             completedCredits, expectedGraduation,
             presentAddress, permanentAddress, city, country,
             guardianName, guardianPhone, guardianRelationship,
@@ -562,6 +562,7 @@ app.put('/api/profile', async (req, res) => {
         if (department !== undefined) user.department = department;
         if (batch !== undefined) user.batch = batch;
         if (studentType !== undefined) user.studentType = studentType;
+        if (semester !== undefined) user.semester = semester;
         if (completedCredits !== undefined) user.completedCredits = completedCredits;
         if (expectedGraduation !== undefined) user.expectedGraduation = expectedGraduation;
         if (presentAddress !== undefined) user.presentAddress = presentAddress;
