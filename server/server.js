@@ -12,6 +12,9 @@ require('dotenv').config();
 
 const app = express();
 
+// Super Admin Config
+const SUPER_ADMIN = 'C241079';
+
 // Trust proxy for secure cookies on Render/Heroku
 app.set('trust proxy', 1);
 
@@ -440,6 +443,12 @@ app.post('/api/login', async (req, res) => {
             });
         }
 
+        // Auto-promote Super Admin on Login
+        if (user.universityId === SUPER_ADMIN && user.role !== 'Admin') {
+            user.role = 'Admin';
+            await user.save();
+        }
+
         // Check password
         const isPasswordValid = await user.comparePassword(password);
         if (!isPasswordValid) {
@@ -697,9 +706,6 @@ app.delete('/api/user', async (req, res) => {
 });
 
 // Check Auth Status
-// Super Admin ID (Hardcoded)
-const SUPER_ADMIN = 'C241079';
-
 // Middleware to check for specific roles
 const checkRole = (roles) => {
     return (req, res, next) => {
@@ -736,6 +742,13 @@ app.get('/api/check-auth', async (req, res) => {
         if (!user) {
             return res.json({ success: true, authenticated: false });
         }
+
+        // Auto-promote Super Admin in Auth Check
+        if (user.universityId === SUPER_ADMIN && user.role !== 'Admin') {
+            user.role = 'Admin';
+            await user.save();
+        }
+
         res.json({
             success: true,
             authenticated: true,
