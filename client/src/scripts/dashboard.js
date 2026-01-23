@@ -65,6 +65,29 @@ function updateUserInfo(user) {
         }
     }
 
+    // Add Moderator Link if applicable
+    const sidebarNav = document.querySelector('.sidebar-nav');
+    if (sidebarNav && (user.role === 'Moderator' || user.role === 'Admin')) {
+        // Check if link already exists
+        if (!document.getElementById('moderator-panel-link')) {
+            const modLink = document.createElement('a');
+            modLink.href = 'moderator.html';
+            modLink.className = 'sidebar-link';
+            modLink.id = 'moderator-panel-link';
+            modLink.innerHTML = `
+                <span class="link-icon">🛡️</span>
+                <span>Moderator Panel</span>
+            `;
+            // Insert after Study Planner (link 4) or just append
+            const studyPlannerLink = sidebarNav.querySelector('a[href="study-planner.html"]');
+            if (studyPlannerLink) {
+                studyPlannerLink.after(modLink);
+            } else {
+                sidebarNav.appendChild(modLink);
+            }
+        }
+    }
+
     // Update Dashboard Stats if on dashboard page
     const cgpaValue = document.querySelector('.stat-card:nth-child(1) .stat-value');
     const creditsValue = document.querySelector('.stat-card:nth-child(2) .stat-value');

@@ -8,7 +8,7 @@ const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
 require('dotenv').config();
-const courses = require('./data/courses');
+
 
 const app = express();
 
@@ -117,6 +117,12 @@ const userSchema = new mongoose.Schema({
         max: 8
     },
 
+
+    role: {
+        type: String,
+        enum: ['Student', 'Moderator', 'Admin'],
+        default: 'Student'
+    },
 
     // Personal Information
     profilePicture: { type: String, default: '' },
@@ -236,6 +242,38 @@ const userSchema = new mongoose.Schema({
         default: Date.now
     }
 });
+
+// Course Resource Schema
+const resourceSchema = new mongoose.Schema({
+    name: { type: String, required: true },
+    link: { type: String, required: true },
+    type: {
+        type: String,
+        enum: ['slides', 'pdfs', 'notes', 'playlists', 'prev_question', 'notice'],
+        required: true
+    },
+    segment: { type: Number, default: 0 } // 0 means term-level (like prev questions)
+});
+
+// Course Schema
+const courseSchema = new mongoose.Schema({
+    code: { type: String, required: true, unique: true },
+    title: { type: String, required: true },
+    semester: { type: Number, required: true },
+    credits: { type: Number, default: 0 },
+    isExtra: { type: Boolean, default: false },
+    mid: {
+        syllabus: { type: String, default: '' },
+        resources: [resourceSchema]
+    },
+    final: {
+        syllabus: { type: String, default: '' },
+        resources: [resourceSchema]
+    },
+    updatedAt: { type: Date, default: Date.now }
+});
+
+const Course = mongoose.model('Course', courseSchema);
 
 // Hash password before saving
 userSchema.pre('save', async function (next) {
@@ -435,7 +473,8 @@ app.post('/api/login', async (req, res) => {
                 email: user.email,
                 profilePicture: user.profilePicture,
                 currentCGPA: user.currentCGPA,
-                completedCredits: user.completedCredits
+                completedCredits: user.completedCredits,
+                role: user.role
             }
         });
 
@@ -658,6 +697,26 @@ app.delete('/api/user', async (req, res) => {
 });
 
 // Check Auth Status
+// Middleware to check for specific roles
+const checkRole = (roles) => {
+    return (req, res, next) => {
+        if (!req.session.userId) {
+            return res.status(401).json({ success: false, message: 'Not authenticated' });
+        }
+
+        // Find user to check role
+        User.findById(req.session.userId).then(user => {
+            if (!user || !roles.includes(user.role)) {
+                return res.status(403).json({ success: false, message: 'Access denied: Unauthorized role' });
+            }
+            next();
+        }).catch(err => {
+            console.error('Role check error:', err);
+            res.status(500).json({ success: false, message: 'Server error during role validation' });
+        });
+    };
+};
+
 app.get('/api/check-auth', async (req, res) => {
     if (req.session.userId) {
         const user = await User.findById(req.session.userId).select('-password');
@@ -697,9 +756,8 @@ app.get('/api/my-courses', async (req, res) => {
             });
         }
 
-        // Load courses data
-        const courses = require('./data/courses.js');
-        const userCourses = courses[user.semester] || [];
+        // Get semester courses from DB
+        const userCourses = await Course.find({ semester: user.semester });
 
         res.json({
             success: true,
@@ -801,25 +859,14 @@ app.get('/api/all-courses', async (req, res) => {
             return res.status(404).json({ success: false, message: 'User not found' });
         }
 
-        // Flatten all courses from all semesters
-        const allCourses = [];
-        for (let sem in courses) {
-            courses[sem].forEach(course => {
-                allCourses.push({
-                    ...course,
-                    semester: parseInt(sem)
-                });
-            });
-        }
+        // Get all courses from DB
+        const allCourses = await Course.find({}).sort({ semester: 1, code: 1 });
 
-        // Get user's enrolled extra courses
-        let enrolledCodes = user.extraCourses || [];
-
-        // Also add current semester courses to enrolled list logic so they show as added
-        if (courses[user.semester]) {
-            const currentSemesterCodes = courses[user.semester].map(c => c.code);
-            enrolledCodes = [...enrolledCodes, ...currentSemesterCodes];
-        }
+        // Get user's enrolled codes (semester courses + extra courses)
+        const enrolledCodes = [
+            ...(await Course.find({ semester: user.semester })).map(c => c.code),
+            ...(user.extraCourses || [])
+        ];
 
         const enrolledCourses = enrolledCodes.map(code => ({ code }));
 
@@ -848,35 +895,31 @@ app.get('/api/user-courses', async (req, res) => {
             return res.status(404).json({ success: false, message: 'User not found' });
         }
 
-        // Get semester courses
-        const semesterCourses = courses[user.semester] || [];
+        // Get semester courses from DB
+        const semesterCourses = await Course.find({ semester: user.semester });
 
-        // Get extra courses
+        // Get extra courses from DB
         const extraCourseCodes = user.extraCourses || [];
-        const extraCourses = [];
+        const extraCourses = await Course.find({ code: { $in: extraCourseCodes } });
 
-        for (let sem in courses) {
-            courses[sem].forEach(course => {
-                if (extraCourseCodes.includes(course.code)) {
-                    extraCourses.push({
-                        ...course,
-                        isExtra: true,
-                        semester: parseInt(sem)
-                    });
-                }
-            });
-        }
-
-        // Combine all courses
+        // Combine and format
         const allUserCourses = [
-            ...semesterCourses.map(c => ({ ...c, isExtra: false })),
-            ...extraCourses
+            ...semesterCourses.map(c => ({ ...c.toObject(), isExtra: false })),
+            ...extraCourses.map(c => ({ ...c.toObject(), isExtra: true }))
         ];
 
         res.json({
             success: true,
             courses: allUserCourses,
-            semester: user.semester
+            user: {
+                id: user._id,
+                name: user.name,
+                universityId: user.universityId,
+                email: user.email,
+                profilePicture: user.profilePicture,
+                role: user.role,
+                academicProgress: user.academicProgress
+            }
         });
 
     } catch (error) {
@@ -903,25 +946,17 @@ app.post('/api/add-course', async (req, res) => {
             return res.status(404).json({ success: false, message: 'User not found' });
         }
 
-        // Check if course exists
-        let courseExists = false;
-        for (let sem in courses) {
-            if (courses[sem].some(c => c.code === courseCode)) {
-                courseExists = true;
-                break;
-            }
-        }
+        // Check if course exists in DB
+        const course = await Course.findOne({ code: courseCode });
 
-        if (!courseExists) {
+        if (!course) {
             return res.status(404).json({ success: false, message: 'Course not found' });
         }
 
         // Check if already enrolled (in semester courses or extra courses)
-        const semesterCourses = courses[user.semester] || [];
-        const alreadyInSemester = semesterCourses.some(c => c.code === courseCode);
-        const alreadyInExtra = (user.extraCourses || []).includes(courseCode);
+        const isAlreadyEnrolled = (course.semester === user.semester) || (user.extraCourses || []).includes(courseCode);
 
-        if (alreadyInSemester || alreadyInExtra) {
+        if (isAlreadyEnrolled) {
             return res.status(400).json({ success: false, message: 'Already enrolled in this course' });
         }
 
@@ -1067,6 +1102,96 @@ app.patch('/api/tasks/:id', async (req, res) => {
 
 
 // ==================== ACADEMIC PROGRESS TRACKING ====================
+
+// ==================== MODERATOR APIs ====================
+
+// Add dynamic resource to a course
+app.post('/api/moderator/add-resource', checkRole(['Moderator', 'Admin']), async (req, res) => {
+    try {
+        const { courseCode, term, name, link, type, segment } = req.body;
+
+        if (!courseCode || !term || !name || !link || !type) {
+            return res.status(400).json({ success: false, message: 'Missing required fields' });
+        }
+
+        const course = await Course.findOne({ code: courseCode });
+        if (!course) {
+            return res.status(404).json({ success: false, message: 'Course not found' });
+        }
+
+        const newResource = {
+            name,
+            link,
+            type,
+            segment: segment || 0
+        };
+
+        if (term === 'mid') {
+            course.mid.resources.push(newResource);
+        } else {
+            course.final.resources.push(newResource);
+        }
+
+        course.updatedAt = Date.now();
+        await course.save();
+
+        res.json({ success: true, message: 'Resource added successfully', course });
+    } catch (error) {
+        console.error('Moderator Add Resource error:', error);
+        res.status(500).json({ success: false, message: 'Server error' });
+    }
+});
+
+// Delete resource from a course
+app.delete('/api/moderator/delete-resource', checkRole(['Moderator', 'Admin']), async (req, res) => {
+    try {
+        const { courseCode, term, resourceId } = req.body;
+
+        if (!courseCode || !term || !resourceId) {
+            return res.status(400).json({ success: false, message: 'Missing required fields' });
+        }
+
+        const course = await Course.findOne({ code: courseCode });
+        if (!course) {
+            return res.status(404).json({ success: false, message: 'Course not found' });
+        }
+
+        if (term === 'mid') {
+            course.mid.resources = course.mid.resources.filter(r => r._id.toString() !== resourceId);
+        } else {
+            course.final.resources = course.final.resources.filter(r => r._id.toString() !== resourceId);
+        }
+
+        course.updatedAt = Date.now();
+        await course.save();
+
+        res.json({ success: true, message: 'Resource deleted successfully' });
+    } catch (error) {
+        console.error('Moderator Delete Resource error:', error);
+        res.status(500).json({ success: false, message: 'Server error' });
+    }
+});
+
+
+// Temporary Promotion Route (for initial setup)
+app.post('/api/moderator/promote', async (req, res) => {
+    try {
+        const { secretCode } = req.body;
+        if (secretCode !== 'MODERATOR_SECRET_2025') {
+            return res.status(403).json({ success: false, message: 'Invalid secret code' });
+        }
+
+        const user = await User.findById(req.session.userId);
+        if (!user) return res.status(404).json({ success: false, message: 'User not found' });
+
+        user.role = 'Moderator';
+        await user.save();
+
+        res.json({ success: true, message: 'Success! You are now a Moderator. Please refresh the page.' });
+    } catch (error) {
+        res.status(500).json({ success: false, message: 'Server error' });
+    }
+});
 
 // Toggle academic segment completion
 app.post('/api/academic-progress/toggle', async (req, res) => {
