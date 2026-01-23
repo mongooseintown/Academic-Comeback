@@ -2575,6 +2575,56 @@ section {
     font-style: italic;
 }
 
+/* ==================== MODERATOR PANEL STYLES ==================== */
+.form-container-premium {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 24px;
+    backdrop-filter: blur(10px);
+}
+
+.form-group-premium {
+    margin-bottom: 1.5rem;
+}
+
+.form-group-premium label {
+    display: block;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group-premium input,
+.form-group-premium select {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: white;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+.form-group-premium input:focus,
+.form-group-premium select:focus {
+    border-color: var(--primary);
+    background: rgba(255, 255, 255, 0.08);
+    outline: none;
+    box-shadow: 0 0 15px rgba(102, 126, 234, 0.1);
+}
+
+.resource-manage-item {
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.resource-manage-item:hover {
+    background: rgba(255, 255, 255, 0.05) !important;
+    transform: translateX(5px);
+}
+
 /* ==================== PREMIUM MODAL ==================== */
 .custom-modal-overlay {
     position: fixed;
