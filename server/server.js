@@ -7,6 +7,8 @@ const session = require('express-session');
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
+const cloudinary = require('cloudinary').v2;
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
 require('dotenv').config();
 
 
@@ -35,37 +37,26 @@ app.use(session({
     }
 }));
 
-// Create uploads directory if it doesn't exist
-const uploadDir = './uploads/profiles';
-if (!fs.existsSync(uploadDir)) {
-    fs.mkdirSync(uploadDir, { recursive: true });
-}
+// Cloudinary Configuration
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET
+});
 
-// Configure multer for profile picture upload
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, 'uploads/profiles/');
-    },
-    filename: function (req, file, cb) {
-        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-        cb(null, 'profile-' + uniqueSuffix + path.extname(file.originalname));
+// Configure Cloudinary Storage for Multer
+const storage = new CloudinaryStorage({
+    cloudinary: cloudinary,
+    params: {
+        folder: 'profiles',
+        allowed_formats: ['jpg', 'png', 'jpeg'],
+        transformation: [{ width: 400, height: 400, crop: 'fill' }]
     }
 });
 
 const upload = multer({
     storage: storage,
-    limits: { fileSize: 5 * 1024 * 1024 }, // 5MB limit
-    fileFilter: function (req, file, cb) {
-        const allowedTypes = /jpeg|jpg|png/;
-        const extname = allowedTypes.test(path.extname(file.originalname).toLowerCase());
-        const mimetype = allowedTypes.test(file.mimetype);
-
-        if (mimetype && extname) {
-            return cb(null, true);
-        } else {
-            cb(new Error('Only .png, .jpg and .jpeg format allowed!'));
-        }
-    }
+    limits: { fileSize: 5 * 1024 * 1024 } // 5MB limit
 });
 
 // Serve uploaded files
@@ -623,16 +614,19 @@ app.post('/api/profile/picture', upload.single('profilePicture'), async (req, re
             return res.status(404).json({ success: false, message: 'User not found' });
         }
 
-        // Delete old profile picture if exists
-        if (user.profilePicture) {
-            const oldPath = path.join(__dirname, user.profilePicture);
-            if (fs.existsSync(oldPath)) {
-                fs.unlinkSync(oldPath);
+        // Delete old profile picture if exists on Cloudinary
+        if (user.profilePicture && user.profilePicture.includes('cloudinary')) {
+            try {
+                // Extract public ID from Cloudinary URL
+                const publicId = user.profilePicture.split('/').pop().split('.')[0];
+                await cloudinary.uploader.destroy(`profiles/${publicId}`);
+            } catch (err) {
+                console.error('Error deleting old Cloudinary image:', err);
             }
         }
 
-        // Save new picture path
-        user.profilePicture = '/uploads/profiles/' + req.file.filename;
+        // Save new picture path (Cloudinary URL)
+        user.profilePicture = req.file.path;
         user.lastProfileUpdate = Date.now();
         await user.save();
 
@@ -662,15 +656,13 @@ app.delete('/api/user', async (req, res) => {
             return res.status(404).json({ success: false, message: 'User not found' });
         }
 
-        // Delete profile picture if exists
-        if (user.profilePicture) {
-            const profilePicPath = path.join(__dirname, user.profilePicture);
-            if (fs.existsSync(profilePicPath)) {
-                try {
-                    fs.unlinkSync(profilePicPath);
-                } catch (err) {
-                    console.error('Error deleting profile picture:', err);
-                }
+        // Delete profile picture if exists on Cloudinary
+        if (user.profilePicture && user.profilePicture.includes('cloudinary')) {
+            try {
+                const publicId = user.profilePicture.split('/').pop().split('.')[0];
+                await cloudinary.uploader.destroy(`profiles/${publicId}`);
+            } catch (err) {
+                console.error('Error deleting Cloudinary image during account deletion:', err);
             }
         }
 
