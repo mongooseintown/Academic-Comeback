@@ -110,6 +110,29 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (globalAvatar && user.profilePicture) {
             globalAvatar.innerHTML = `<img src="${user.profilePicture}" alt="Avatar" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;" onerror="this.parentElement.innerHTML='🎓'">`;
         }
+
+        // --- Sidebar Sync Logic ---
+        const sidebarNav = document.querySelector('.sidebar-nav');
+        if (sidebarNav) {
+            // Add Moderator Link
+            if (!document.getElementById('moderator-panel-link')) {
+                const modLink = document.createElement('a');
+                modLink.href = 'moderator.html';
+                modLink.className = 'sidebar-link' + (window.location.pathname.includes('moderator.html') ? ' active' : '');
+                modLink.id = 'moderator-panel-link';
+                modLink.innerHTML = `<span class="link-icon">🛡️</span><span>Moderator Panel</span>`;
+                sidebarNav.appendChild(modLink);
+            }
+            // Add Admin Link
+            if (!document.getElementById('admin-panel-link')) {
+                const adminLink = document.createElement('a');
+                adminLink.href = 'admin.html';
+                adminLink.className = 'sidebar-link' + (window.location.pathname.includes('admin.html') ? ' active' : '');
+                adminLink.id = 'admin-panel-link';
+                adminLink.innerHTML = `<span class="link-icon">⚙️</span><span>Admin Panel</span>`;
+                sidebarNav.appendChild(adminLink);
+            }
+        }
     }
 
     // ==================== SIDEBAR & UI NAVIGATION ====================
