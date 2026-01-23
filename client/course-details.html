@@ -391,20 +391,30 @@
                         <span>Back to ${type === 'prev_question' ? 'Term Content' : 'Categories'}</span>
                     </div>
                     <div class="links-list" style="display: flex; flex-direction: column; gap: 1rem;">
-                        ${filteredResources.map(r => `
-                            <a href="${r.link}" target="_blank" class="resource-item" style="text-decoration: none;">
-                                <div style="display: flex; align-items: center; gap: 1.5rem; justify-content: space-between; width: 100%;">
-                                    <div style="display: flex; align-items: center; gap: 1.5rem;">
-                                        <div style="font-size: 2rem;">${type === 'slides' ? '📽️' : type === 'pdfs' ? '📄' : type === 'notes' ? '📝' : type === 'playlists' ? '📺' : '📜'}</div>
-                                        <div>
-                                            <h4 style="margin: 0; color: white; font-size: 1.1rem;">${r.name}</h4>
-                                            <p style="margin: 0.2rem 0 0; font-size: 0.85rem; color: var(--text-muted); font-weight: normal;">${type === 'prev_question' ? 'Previous Year Question' : 'Study Resource'} • Official</p>
-                                        </div>
+                        ${filteredResources.map(r => {
+                if (r.type === 'notice' || r.link === '#') {
+                    return `
+                                    <div class="resource-notice-box" style="padding: 1.5rem; background: rgba(59, 130, 246, 0.1); border: 1px dashed rgba(59, 130, 246, 0.3); border-radius: 16px; display: flex; align-items: center; gap: 1rem;">
+                                        <span style="font-size: 1.5rem;">📢</span>
+                                        <p style="margin: 0; color: #93c5fd; font-weight: 500;">${r.name}</p>
                                     </div>
-                                    <span class="btn btn-outline" style="padding: 0.5rem 1.25rem; font-size: 0.9rem; border-radius: 8px;">View details</span>
-                                </div>
-                            </a>
-                        `).join('')}
+                                `;
+                }
+                return `
+                                <a href="${r.link}" target="_blank" class="resource-item" style="text-decoration: none;">
+                                    <div style="display: flex; align-items: center; gap: 1.5rem; justify-content: space-between; width: 100%;">
+                                        <div style="display: flex; align-items: center; gap: 1.5rem;">
+                                            <div style="font-size: 2rem;">${r.type === 'slides' ? '📽️' : r.type === 'pdfs' ? '📄' : r.type === 'notes' ? '📝' : r.type === 'playlists' ? '📺' : '📜'}</div>
+                                            <div>
+                                                <h4 style="margin: 0; color: white; font-size: 1.1rem;">${r.name}</h4>
+                                                <p style="margin: 0.2rem 0 0; font-size: 0.85rem; color: var(--text-muted); font-weight: normal;">${r.type === 'prev_question' ? 'Previous Year Question' : 'Study Resource'} • Official</p>
+                                            </div>
+                                        </div>
+                                        <span class="btn btn-outline" style="padding: 0.5rem 1.25rem; font-size: 0.9rem; border-radius: 8px;">View details</span>
+                                    </div>
+                                </a>
+                            `;
+            }).join('')}
                     </div>
                 </div>
             `;
